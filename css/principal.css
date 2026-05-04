@@ -25,7 +25,7 @@
         /* --- LANDING PAGE --- */
         #landing {
             height: 100vh;
-            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('/TR.jpg') center/cover;
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('/imagens/TR.jpg') center/cover;
             display: flex;
             flex-direction: column;
             justify-content: center;

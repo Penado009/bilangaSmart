@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pt-ao">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Produtos</title>
+    <link rel="stylesheet" href="/./css/principal.css">
+</head>
+<body>
+    <header>
+        <div id="logo">
+            <img src="/icon/logo.png" alt="logo" style="width: 100px; height: 50px; margin: 0; padding: 0; cursor: pointer;">
+        </div>
+        
+        <nav class="navbar">
+            <a href="/index.html" onclick="location.reload()">Home</a>
+            <a href="sec_page/produtos/produtos.html" >Produtos</a>
+            <a href="#">Categórias</a>
+            <a href="#">Sobre Nós</a>
+        </nav>
+        <div class="cart-icon" onclick="toggleCart(true)">
+            🛒 <span class="cart-count" id="count">0</span>
+        </div>
+    </header>
+
+    <main id="shop-area">
+        <div class="container">
+            <div class="search-container">
+                <input type="text" id="searchInput" placeholder="Pesquisar produtos (ex: Banana, Cenoura...)"
+                    onkeyup="filterProducts()">
+            </div>
+            <h2 style="margin-bottom: 30px;">Destaques de Hoje</h2>
+
+
+            <div class="product-grid">
+                <div class="product-card">
+                    <img src="DR.jpg">
+                    <div class="product-info">
+                        <h3>Mix de Vegetais</h3>
+                        <p class="price">1.500 Kz / kg</p>
+                        <button class="btn-add" onclick="addToCart('Mix de Vegetais', 1500)">🛒 Adicionar</button>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <img src="jh.jpg">
+                    <div class="product-info">
+                        <h3>Bananas Seleccionadas</h3>
+                        <p class="price">800 Kz / Cacho</p>
+                        <button class="btn-add" onclick="addToCart('Banana', 800)">🛒 Adicionar</button>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <img src="ws.jpg">
+                    <div class="product-info">
+                        <h3>Cenouras Premium</h3>
+                        <p class="price">600 Kz / kg</p>
+                        <button class="btn-add" onclick="addToCart('Cenoura', 600)">🛒 Adicionar</button>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <img src="TR.jpg">
+                    <div class="product-info">
+                        <h3>Lote Mercado</h3>
+                        <p class="price">2.500 Kz / Caixa</p>
+                        <button class="btn-add" onclick="addToCart('Caixa Mercado', 2500)">🛒 Adicionar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+</html>

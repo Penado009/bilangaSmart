@@ -1,0 +1,259 @@
+@charset 'UTF-8';
+
+
+        :root {
+            --primary: #1b5e20;
+            --secondary: #2e7d32;
+            --accent: #ffa000;
+            --light: #f8f9fa;
+            --white: #ffffff;
+            --shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', sans-serif;
+        }
+
+        body {
+            background-color: var(--primary);
+            color: #333;
+        }
+
+        /* --- LANDING PAGE --- */
+        #landing {
+            height: 100vh;
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('/TR.jpg') center/cover;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .btn-shop {
+            background: var(--accent);
+            color: black;
+            padding: 20px 40px;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+            margin-top: 25px;
+        }
+
+        .btn-shop:hover {
+            transform: scale(1.05);
+            background: white;
+        }
+
+        /* --- LOJA --- */
+        /* #shop-area {
+            display: none;
+        } */
+
+        header {
+            background: rgba(27, 94, 31, 0.523);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            color: white;
+            padding: 15px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .cart-icon {
+            position: relative;
+            cursor: pointer;
+            font-size: 1.5rem;
+        }
+
+        .cart-count {
+            position: absolute;
+            top: -10px;
+            right: -10px;
+            background: var(--accent);
+            color: black;
+            font-size: 0.8rem;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-weight: bold;
+        }
+
+        .container {
+            padding: 40px 5%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 25px;
+        }
+
+        .product-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: 0.3s;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .product-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .product-info {
+            padding: 15px;
+            text-align: center;
+        }
+
+        .price {
+            color: var(--secondary);
+            font-size: 1.3rem;
+            font-weight: bold;
+            margin: 10px 0;
+        }
+
+        .btn-add {
+            background: var(--primary);
+            color: white;
+            border: none;
+            width: 100%;
+            padding: 12px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: 0.2s;
+        }
+
+        .btn-add:hover {
+            background: var(--secondary);
+        }
+
+        /* --- CARRINHO LATERAL --- */
+        #cart-sidebar {
+            position: fixed;
+            right: -400px;
+            top: 0;
+            width: 350px;
+            height: 100%;
+            background: white;
+            box-shadow: -5px 0 15px rgba(0, 0, 0, 0.2);
+            z-index: 200;
+            transition: 0.4s;
+            padding: 25px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        #cart-sidebar.active {
+            right: 0;
+        }
+
+        .cart-items {
+            flex-grow: 1;
+            overflow-y: auto;
+            margin-top: 20px;
+        }
+
+        .cart-item {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 15px;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 10px;
+        }
+
+        .btn-checkout {
+            background: #25D366;
+            color: white;
+            border: none;
+            padding: 15px;
+            border-radius: 8px;
+            font-weight: bold;
+            cursor: pointer;
+            width: 100%;
+            margin-top: 15px;
+            font-size: 1rem;
+        }
+
+        .close-cart {
+            cursor: pointer;
+            font-size: 1.2rem;
+            float: right;
+        }
+
+        /* Estilo da barra de navegação */
+        .navbar {
+            display: flex;
+            text-align: right;
+            gap: 20px;
+        }
+
+        .navbar a {
+            text-align: right;
+            color: white;
+            font-weight: bolder;
+            font-size: 1.1rem;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+
+        .navbar a:hover {
+            color: var(--accent);
+        }
+
+        /* Ajuste para dispositivos móveis */
+        @media (max-width: 600px) {
+            .navbar {
+                display: none;
+            }
+
+            /* Esconde em telas muito pequenas ou podes usar um ícone de hambúrguer */
+            header {
+                padding: 15px 20px;
+            }
+        }
+
+        .search-container {
+            margin-bottom: 30px;
+            width: 100%;
+        }
+
+        #searchInput {
+            width: 100%;
+            padding: 15px 20px;
+            border: 2px solid #ddd;
+            border-radius: 30px;
+            font-size: 1rem;
+            outline: none;
+            transition: 0.3s;
+        }
+
+        #searchInput:focus {
+            border-color: var(--primary);
+            box-shadow: var(--shadow);
+        }
+    

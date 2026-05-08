@@ -40,79 +40,139 @@
                 <button class="btn-checkout" onclick="checkoutWhatsApp()">FINALIZAR VIA WHATSAPP</button>
             </div>
         </aside>
+
+        <!-- SECTION DESTAQUE-->
+
+        <section id="sec_destaq" >
+
+            <h2 class="h2_section">Destaque</h2>
+            
+            <div class="content_destaq">
+
+                <div class="product-card">
+                    <img src="jh.jpg">
+                    <div class="product-info">
+                        <h3>Bananas Seleccionadas</h3>
+                        <p class="price">800 Kz / Cacho</p>
+                        <button class="btn-add" onclick="addToCart('Banana', 800)">🛒 Adicionar</button>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <img src="jh.jpg">
+                    <div class="product-info">
+                        <h3>Bananas Seleccionadas</h3>
+                        <p class="price">800 Kz / Cacho</p>
+                        <button class="btn-add" onclick="addToCart('Banana', 800)">🛒 Adicionar</button>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <img src="jh.jpg">
+                    <div class="product-info">
+                        <h3>Bananas Seleccionadas</h3>
+                        <p class="price">800 Kz / Cacho</p>
+                        <button class="btn-add" onclick="addToCart('Banana', 800)">🛒 Adicionar</button>
+                    </div>
+                </div>
+
+
+                <div class="product-card">
+                    <img src="jh.jpg">
+                    <div class="product-info">
+                        <h3>Bananas Seleccionadas</h3>
+                        <p class="price">800 Kz / Cacho</p>
+                        <button class="btn-add" onclick="addToCart('Banana', 800)">🛒 Adicionar</button>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <img src="jh.jpg">
+                    <div class="product-info">
+                        <h3>Bananas Seleccionadas</h3>
+                        <p class="price">800 Kz / Cacho</p>
+                        <button class="btn-add" onclick="addToCart('Banana', 800)">🛒 Adicionar</button>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <img src="jh.jpg">
+                    <div class="product-info">
+                        <h3>Bananas Seleccionadas</h3>
+                        <p class="price">800 Kz / Cacho</p>
+                        <button class="btn-add" onclick="addToCart('Banana', 800)">🛒 Adicionar</button>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <img src="jh.jpg">
+                    <div class="product-info">
+                        <h3>Bananas Seleccionadas</h3>
+                        <p class="price">800 Kz / Cacho</p>
+                        <button class="btn-add" onclick="addToCart('Banana', 800)">🛒 Adicionar</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- CATEGORIA-->
+        <section id="categoria">
+            <h2 class="h2_section h2_center">Categoria de Produtos</h2>
+
+        </section>
+
+
+        
+        <!-- PERGUNTAS-->
+        <section id="perguntas">
+            
+            <h2 class="h2_section ">Perguntas frequentes</h2>
+
+            <div class="all">
+
+                <details class="quest">
+                    <summary>Pergunta 1</summary>
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vitae pariatur laborum dolorum quaerat aut obcaecati laudantium, tempora tempore? Enim nobis tenetur pariatur doloremque voluptate porro consectetur ipsum id beatae eos.
+                    
+                </details>
+                <details class="quest">
+                    <summary>Pergunta 2</summary>
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vitae pariatur laborum dolorum quaerat aut obcaecati laudantium, tempora tempore? Enim nobis tenetur pariatur doloremque voluptate porro consectetur ipsum id beatae eos.
+                    
+                </details>
+                <details class="quest">
+                    <summary>Pergunta 3</summary>
+                    
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vitae pariatur laborum dolorum quaerat aut obcaecati laudantium, tempora tempore? Enim nobis tenetur pariatur doloremque voluptate porro consectetur ipsum id beatae eos.
+                    
+                </details>
+            </div>
+
+        </section>
+      
+      
+        <!-- COMENTARIOS-->
+        <section id="comment">
+            <h2 class="h2_section h2_center" >Depoimentos</h2>
+        </section>
+
+
+        <footer>
+            <div class="list_menu">
+                
+                    <a href="#" onclick="location.reload()">Home</a>
+                    <a href="sec_page/produtos/produtos.html">Produtos</a>
+                    <a href="#">Categórias</a>
+                    <a href="#">Sobre Nós</a>
+               
+            </div>
+        </footer>
+
+         
     </main>
 
-    <script>
-        let cart = [];
-        let total = 0;
-
-        // function openShop() {
-        //     document.getElementById('landing').style.display = 'none';
-        //     document.getElementById('shop-area').style.display = 'block';
-        // }
-
-        function toggleCart(show) {
-            document.getElementById('cart-sidebar').classList.toggle('active', show);
-        }
-
-        function addToCart(name, price) {
-            cart.push({ name, price });
-            total += price;
-            updateUI();
-            alert(name + " adicionado ao carrinho!");
-        }
-
-        function updateUI() {
-            document.getElementById('count').innerText = cart.length;
-            document.getElementById('total-price').innerText = total.toLocaleString();
-
-            const list = document.getElementById('cart-list');
-            list.innerHTML = '';
-            cart.forEach((item, index) => {
-                list.innerHTML += `
-                    <div class="cart-item">
-                        <span>${item.name}</span>
-                        <span>${item.price} Kz</span>
-                    </div>
-                `;
-            });
-        }
-
-        function checkoutWhatsApp() {
-            if (cart.length === 0) return alert("O carrinho está vazio!");
-
-            let numeroWhatsApp = "244935850464"; // INSIRA O SEU NÚMERO AQUI
-            let mensagem = "Olá BILANGA Smart! Gostaria de fazer o seguinte pedido:%0A%0A";
-
-            cart.forEach(item => {
-                mensagem += `- ${item.name}: ${item.price} Kz%0A`;
-            });
-
-            mensagem += `%0A*Total: ${total} Kz*%0A%0AComo posso proceder com o pagamento?`;
-
-            window.open(`https://wa.me/${numeroWhatsApp}?text=${mensagem}`, '_blank');
-        }
-        function filterProducts() {
-    // 1. Obter o texto da pesquisa e converter para minúsculas
-    let input = document.getElementById('searchInput').value.toLowerCase();
     
-    // 2. Selecionar todos os cartões de produto
-    let cards = document.getElementsByClassName('product-card');
 
-    // 3. Percorrer cada cartão
-    for (let i = 0; i < cards.length; i++) {
-        let productName = cards[i].getElementsByTagName('h3')[0].innerText.toLowerCase();
-        
-        // 4. Se o nome contiver o texto pesquisado, mostra. Se não, esconde.
-        if (productName.includes(input)) {
-            cards[i].style.display = "";
-        } else {
-            cards[i].style.display = "none";
-        }
-    }
-}
-
-    </script>
+    <script src="script/main.js"></script>
 </body>
 
 </html>

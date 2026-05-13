@@ -1,0 +1,64 @@
+@charset 'UTF-8';
+
+ /*FOOTER*/
+        footer{
+            background-color: var(--secondary);
+            
+            height: fit-content;
+            padding: 20px;
+            margin-top: 50px;
+            
+        }
+
+        .flex_footer{
+            display: flex;
+            flex-flow: column nowrap;
+            gap: 10px;
+            justify-content: space-evenly;
+            align-items: center;
+        }
+
+       
+
+        div.redes_sociais .item-rede{
+            text-decoration: none;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background-color: #ddd;
+        }
+        
+        nav.link_footer a{
+            font-weight: bold;
+            text-decoration: none;
+            color: var(--white);
+        }
+
+        nav.link_footer a:hover{
+           /*color: rgb(157, 241, 157);*/
+           color: var(--accent)
+        }
+
+        .none_outline{
+            outline: none;
+            padding: 5px;
+            width: 200px; 
+        }
+
+        .radius-coment{
+            border-radius: 10px;
+            border: none;
+        }
+
+        .btn-comentar{
+            padding: 5px 10px;
+            background-color: var(--primary);
+            color: white;
+            font-weight: 600;
+            align-self: start;;
+        }
+
+        .btn-comentar:hover{
+            background-color: #03a90e;
+        }
+

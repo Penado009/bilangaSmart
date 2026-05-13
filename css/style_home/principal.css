@@ -1,0 +1,30 @@
+@charset 'UTF-8';
+@import url(header.css);
+@import url(main.css);
+@import url(footer.css);
+@import url(./../responsivo.css);
+
+
+
+        :root {
+            --primary: #1b5e1f;
+            --secondary: #2e7d32;
+            --accent: #ffa000;
+            --light: #f8f9fa;
+            --white: #ffffff;
+            --shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', sans-serif;
+        }
+
+        body {
+            background-color: #FFF;
+            color: #333;
+        }    
+        
+        

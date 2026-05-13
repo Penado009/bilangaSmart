@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ao">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carrinho</title>
+    <link rel="stylesheet" href="./../../css/style_home/principal.css">
+</head>
+<body>
+    <main>
+        <div id="cart-sidebar">
+            <span class="close-cart" onclick="toggleCart(false)">✖ Fechar</span>
+            <h3>O Meu Pedido</h3>
+            <div class="cart-items" id="cart-list"></div>
+            <div style="border-top: 2px solid #eee; padding-top: 15px;">
+                <h4>Total: <span id="total-price">0</span> Kz</h4>
+                <button class="btn-checkout" onclick="checkoutWhatsApp()">FINALIZAR VIA WHATSAPP</button>
+            </div>
+        </div>
+
+    </main>
+
+    <script src="./../../script/main.js"></script>
+</body>
+</html>

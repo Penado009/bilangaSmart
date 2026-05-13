@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Produtos</title>
-    <link rel="stylesheet" href="/css/principal.css">
+    <link rel="stylesheet" href="/css/style_home/principal.css">
+    <link rel="stylesheet" href="./../../css/style_produtos/main.css">
 </head>
 <body style="background-color: #FFF;">
     <header>
@@ -14,7 +15,7 @@
         
         <nav class="navbar">
             <a href="/index.html" onclick="location.reload()">Home</a>
-            <a href="sec_page/produtos/produtos.html" >Produtos</a>
+            <a href="produtos.html" >Produtos</a>
             <a href="#">Categórias</a>
             <a href="#">Sobre Nós</a>
         </nav>
@@ -29,7 +30,17 @@
                 <input type="text" id="searchInput" placeholder="Pesquisar produtos (ex: Banana, Cenoura...)"
                     onkeyup="filterProducts()">
             </div>
-            <h2 style="margin-bottom: 30px;">Destaques de Hoje</h2>
+
+            <!-- <aside id="cart-sidebar">
+            <span class="close-cart" onclick="toggleCart(false)">✖ Fechar</span>
+            <h3>O Meu Pedido</h3>
+            <div class="cart-items" id="cart-list"></div>
+            <div style="border-top: 2px solid #eee; padding-top: 15px;">
+                <h4>Total: <span id="total-price">0</span> Kz</h4>
+                <button class="btn-checkout" onclick="checkoutWhatsApp()">FINALIZAR VIA WHATSAPP</button>
+            </div>
+        </aside> -->
+            <h2 style="margin-bottom: 30px;">Todos os nossos produtos</h2>
 
 
             <div class="product-grid">
@@ -68,5 +79,7 @@
             </div>
         </div>
     </main>
+
+    <script src="./../../script/main.js"></script>
 </body>
 </html>

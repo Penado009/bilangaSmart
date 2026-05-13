@@ -5,33 +5,34 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BILANGA Smart </title>
-    <link rel="stylesheet" href="css/principal.css">
+    <link rel="stylesheet" href="css/style_home/principal.css">
 </head>
 
-<body>
+<body style="overflow-x: hidden;">
     <header>
         <div id="logo">
-            <img src="/icon/logo.png" alt="logo" style="width: 100px; height: 50px; margin: 0; padding: 0; cursor: pointer;">
+            <img src="icon/logo.png" alt="logo"
+                style="width: 100px; height: 50px; margin: 0; padding: 0; cursor: pointer;">
         </div>
-        
+
         <nav class="navbar">
             <a href="#" onclick="location.reload()">Home</a>
-            <a href="sec_page/produtos/produtos.html" >Produtos</a>
+            <a href="sec_page/produtos/produtos.html">Produtos</a>
             <a href="#">Categórias</a>
             <a href="#">Sobre Nós</a>
         </nav>
-        <div class="cart-icon" onclick="toggleCart(true)">
+        <a href="sec_page/carrinho/carrinho.html" class="cart-icon" >
             🛒 <span class="cart-count" id="count">0</span>
-        </div>
+        </a>
     </header>
 
     <main>
         <section id="landing">
-            <h1 style="font-size: 3.5rem;">BILANGA Smart</h1>
-            <p style="color: var(--accent);">Produtos frescos directamente do campo para a sua mesa.</p>
+            <h1 style="font-size: 3.5em;" class="">BILANGA Smart</h1>
+            <p class="p-muda" style="color: var(--accent); font-size: x-large;">Oferecemos produtos <br style="display: none;" class="quebra"> <span class="text_alt"></span></p>
             <button class="btn-shop" onclick="openShop()">VER PRODUTOS E COMPRAR</button>
         </section>
-        <aside id="cart-sidebar">
+        <!-- <aside id="cart-sidebar">
             <span class="close-cart" onclick="toggleCart(false)">✖ Fechar</span>
             <h3>O Meu Pedido</h3>
             <div class="cart-items" id="cart-list"></div>
@@ -39,78 +40,79 @@
                 <h4>Total: <span id="total-price">0</span> Kz</h4>
                 <button class="btn-checkout" onclick="checkoutWhatsApp()">FINALIZAR VIA WHATSAPP</button>
             </div>
-        </aside>
+        </aside> -->
 
         <!-- SECTION DESTAQUE-->
 
-        <section id="sec_destaq" >
+        <section id="sec_destaq">
 
             <h2 class="h2_section">Destaque</h2>
+
             
-            <div class="content_destaq">
 
-                <div class="product-card">
-                    <img src="jh.jpg">
-                    <div class="product-info">
-                        <h3>Bananas Seleccionadas</h3>
-                        <p class="price">800 Kz / Cacho</p>
-                        <button class="btn-add" onclick="addToCart('Banana', 800)">🛒 Adicionar</button>
+                <div class="content_destaq">
+                    <div class="item_destaq">
+
+                    <div class="product-card">
+                        <img src="sec_page/produtos/mb.jpg">
+                        <div class="product-info">
+                            <h3>Bananas Seleccionadas</h3>
+                            <p class="price">800 Kz / Cacho</p>
+                            <button class="btn-add" onclick="addToCart('Banana', 800)">🛒 Adicionar</button>
+                        </div>
                     </div>
+
+                    <div class="product-card">
+                        <img src="sec_page/produtos/mb.jpg">
+                        <div class="product-info">
+                            <h3>Bananas Seleccionadas</h3>
+                            <p class="price">800 Kz / Cacho</p>
+                            <button class="btn-add" onclick="addToCart('Banana', 800)">🛒 Adicionar</button>
+                        </div>
+                    </div>
+
+                    <div class="product-card">
+                        <img src="sec_page/produtos/mb.jpg">
+                        <div class="product-info">
+                            <h3>Bananas Seleccionadas</h3>
+                            <p class="price">800 Kz / Cacho</p>
+                            <button class="btn-add" onclick="addToCart('Banana', 800)">🛒 Adicionar</button>
+                        </div>
+                    </div>
+
+
+                    <div class="product-card">
+                        <img src="sec_page/produtos/mb.jpg">
+                        <div class="product-info">
+                            <h3>Bananas Seleccionadas</h3>
+                            <p class="price">800 Kz / Cacho</p>
+                            <button class="btn-add" onclick="addToCart('Banana', 800)">🛒 Adicionar</button>
+                        </div>
+                    </div>
+
+                    <div class="product-card">
+                        <img src="sec_page/produtos/mb.jpg">
+                        <div class="product-info">
+                            <h3>Bananas Seleccionadas</h3>
+                            <p class="price">800 Kz / Cacho</p>
+                            <button class="btn-add" onclick="addToCart('Banana', 800)">🛒 Adicionar</button>
+                        </div>
+                    </div>
+
+                    <div class="product-card">
+                        <img src="sec_page/produtos/mb.jpg">
+                        <div class="product-info">
+                            <h3>Bananas Seleccionadas</h3>
+                            <p class="price">800 Kz / Cacho</p>
+                            <button class="btn-add" onclick="addToCart('Banana', 800)">🛒 Adicionar</button>
+                        </div>
+                    </div>
+
                 </div>
-                <div class="product-card">
-                    <img src="jh.jpg">
-                    <div class="product-info">
-                        <h3>Bananas Seleccionadas</h3>
-                        <p class="price">800 Kz / Cacho</p>
-                        <button class="btn-add" onclick="addToCart('Banana', 800)">🛒 Adicionar</button>
-                    </div>
-                </div>
-                <div class="product-card">
-                    <img src="jh.jpg">
-                    <div class="product-info">
-                        <h3>Bananas Seleccionadas</h3>
-                        <p class="price">800 Kz / Cacho</p>
-                        <button class="btn-add" onclick="addToCart('Banana', 800)">🛒 Adicionar</button>
-                    </div>
+                    
                 </div>
 
 
-                <div class="product-card">
-                    <img src="jh.jpg">
-                    <div class="product-info">
-                        <h3>Bananas Seleccionadas</h3>
-                        <p class="price">800 Kz / Cacho</p>
-                        <button class="btn-add" onclick="addToCart('Banana', 800)">🛒 Adicionar</button>
-                    </div>
-                </div>
-
-                <div class="product-card">
-                    <img src="jh.jpg">
-                    <div class="product-info">
-                        <h3>Bananas Seleccionadas</h3>
-                        <p class="price">800 Kz / Cacho</p>
-                        <button class="btn-add" onclick="addToCart('Banana', 800)">🛒 Adicionar</button>
-                    </div>
-                </div>
-
-                <div class="product-card">
-                    <img src="jh.jpg">
-                    <div class="product-info">
-                        <h3>Bananas Seleccionadas</h3>
-                        <p class="price">800 Kz / Cacho</p>
-                        <button class="btn-add" onclick="addToCart('Banana', 800)">🛒 Adicionar</button>
-                    </div>
-                </div>
-
-                <div class="product-card">
-                    <img src="jh.jpg">
-                    <div class="product-info">
-                        <h3>Bananas Seleccionadas</h3>
-                        <p class="price">800 Kz / Cacho</p>
-                        <button class="btn-add" onclick="addToCart('Banana', 800)">🛒 Adicionar</button>
-                    </div>
-                </div>
-            </div>
         </section>
 
 
@@ -118,59 +120,264 @@
         <section id="categoria">
             <h2 class="h2_section h2_center">Categoria de Produtos</h2>
 
+            <div class="container_catal">
+                <div class="slide_catal">
+
+                    <div class="item_catol" style="background-image: url(sec_page/produtos/DR.jpg);">
+                        <div class="content_catal" >
+                            <div class="nome">Switzerland</div>
+                            <div class="des">Lorem, ipsum dolor sit amet</div>
+                            <button>See More</button>
+                        </div>
+                    </div>
+
+                    <div class="item_catol" style="background-image: url(sec_page/produtos/jh.jpg);">
+                        <div class="content_catal">
+                            <div class="nome">Finland</div>
+                            <div class="des">Lorem, ipsum dolor sit amet</div>
+                            <button>See More</button>
+                        </div>
+                    </div>
+
+                    <div class="item_catol" style="background-image: url(sec_page/produtos/khj.jpg);">
+                        <div class="content_catal">
+                            <div class="nome">Iceland</div>
+                            <div class="des">Lorem, ipsum dolor sit amet</div>
+                            <button>See More</button>
+                        </div>
+                    </div>
+
+                    <div class="item_catol" style="background-image: url(sec_page/produtos/mb.jpg);">
+                        <div class="content_catal">
+                            <div class="nome">Australia</div>
+                            <div class="des">Lorem, ipsum dolor sit amet</div>
+                            <button>See More</button>
+                        </div>
+                    </div>
+
+                    <div class="item_catol" style="background-image: url(sec_page/produtos/milho.jpg);">
+                        <div class="content_catal">
+                            <div class="nome">Netherland</div>
+                            <div class="des">Lorem, ipsum dolor sit amet</div>
+                            <button>See More</button>
+                        </div>
+                    </div>
+
+                    <div class="item_catol" style="background-image: url(sec_page/produtos/TR.jpg);">
+                        <div class="content_catal">
+                            <div class="nome">Ireland</div>
+                            <div class="des">Lorem, ipsum dolor sit amet</div>
+                            <button>See More</button>
+                        </div>
+                    </div>
+
+                    <div class="button">
+                        <button class="prev">
+                            <i>&lt;</i>
+                        </button>
+                    </div>
+
+                    <div class="button">
+                       <button class="next">
+                            <i>&gt;</i>
+                        </button> 
+                    </div>
+                  
+                </div>
+            </div>
+
         </section>
 
 
-        
+
         <!-- PERGUNTAS-->
         <section id="perguntas">
-            
+
             <h2 class="h2_section ">Perguntas frequentes</h2>
 
             <div class="all">
 
                 <details class="quest">
                     <summary>Pergunta 1</summary>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vitae pariatur laborum dolorum quaerat aut obcaecati laudantium, tempora tempore? Enim nobis tenetur pariatur doloremque voluptate porro consectetur ipsum id beatae eos.
-                    
+                    <div class="text_respost">
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vitae pariatur laborum dolorum quaerat aut
+                        obcaecati laudantium, tempora tempore? Enim nobis tenetur pariatur doloremque voluptate porro
+                        consectetur ipsum id beatae eos.
+                    </div>
+
                 </details>
                 <details class="quest">
                     <summary>Pergunta 2</summary>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vitae pariatur laborum dolorum quaerat aut obcaecati laudantium, tempora tempore? Enim nobis tenetur pariatur doloremque voluptate porro consectetur ipsum id beatae eos.
-                    
+                    <div class="text_respost">
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vitae pariatur laborum dolorum quaerat aut
+                        obcaecati laudantium, tempora tempore? Enim nobis tenetur pariatur doloremque voluptate porro
+                        consectetur ipsum id beatae eos.
+                    </div>
+
                 </details>
                 <details class="quest">
                     <summary>Pergunta 3</summary>
-                    
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vitae pariatur laborum dolorum quaerat aut obcaecati laudantium, tempora tempore? Enim nobis tenetur pariatur doloremque voluptate porro consectetur ipsum id beatae eos.
-                    
+                    <div class="text_respost">
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vitae pariatur laborum dolorum quaerat aut
+                        obcaecati laudantium, tempora tempore? Enim nobis tenetur pariatur doloremque voluptate porro
+                        consectetur ipsum id beatae eos.
+                    </div>
+
+                </details>
+                <details class="quest">
+                    <summary>Pergunta 4</summary>
+                    <div class="text_respost">
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vitae pariatur laborum dolorum quaerat aut
+                        obcaecati laudantium, tempora tempore? Enim nobis tenetur pariatur doloremque voluptate porro
+                        consectetur ipsum id beatae eos.
+                    </div>
+
+                </details>
+                <details class="quest">
+                    <summary>Pergunta 5</summary>
+
+                    <div class="text_respost">
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vitae pariatur laborum dolorum quaerat aut
+                        obcaecati laudantium, tempora tempore? Enim nobis tenetur pariatur doloremque voluptate porro
+                        consectetur ipsum id beatae eos.
+                    </div>
+
                 </details>
             </div>
 
         </section>
-      
-      
+
+
         <!-- COMENTARIOS-->
         <section id="comment">
-            <h2 class="h2_section h2_center" >Depoimentos</h2>
+            <h2 class="h2_section h2_center">Depoimentos</h2>
+
+            <div class="content_destaq">
+                <div class="item_destaq item_coment">
+
+                    <div class="card_coment">
+
+                        <div class="min_cont">
+                            <div class="icon_user">
+
+                            </div>
+
+                            <div class="nome_user">
+                                Usuario comentador
+                            </div>
+                        </div>
+
+                        <p class="text-coment">
+                            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptas vel quis ratione dicta quas ad culpa esse voluptate 
+                        </p>
+                    </div>
+                    <div class="card_coment">
+                        <div class="min_cont">
+                            <div class="icon_user">
+
+                            </div>
+
+                            <div class="nome_user">
+                                Usuario comentador
+                            </div>
+                        </div>
+
+                        <p class="text-coment">
+                            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptas vel quis ratione dicta quas ad culpa esse voluptate 
+                        </p>
+                    </div>
+                    <div class="card_coment">
+                        <div class="min_cont">
+                            <div class="icon_user">
+
+                            </div>
+
+                            <div class="nome_user">
+                                 Usuario comentador
+                            </div>
+                        </div>
+
+                        <p class="text-coment">
+                            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptas vel quis ratione dicta quas ad culpa esse voluptate 
+                        </p>
+                    </div>
+                    <div class="card_coment">
+                        <div class="min_cont">
+                            <div class="icon_user">
+
+                            </div>
+
+                            <div class="nome_user">
+                                 Usuario comentador
+                            </div>
+                        </div>
+
+                        <p class="text-coment">
+                            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptas vel quis ratione dicta quas ad culpa esse voluptate 
+                        </p>
+                    </div>
+                    <div class="card_coment">
+                        <div class="min_cont">
+                            <div class="icon_user">
+
+                            </div>
+
+                            <div class="nome_user">
+                                 Usuario comentador
+                            </div>
+                        </div>
+
+                        <p class="text-coment">
+                            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptas vel quis ratione dicta quas ad culpa esse voluptate 
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+
         </section>
 
 
-        <footer>
-            <div class="list_menu">
-                
-                    <a href="#" onclick="location.reload()">Home</a>
-                    <a href="sec_page/produtos/produtos.html">Produtos</a>
-                    <a href="#">Categórias</a>
-                    <a href="#">Sobre Nós</a>
-               
-            </div>
-        </footer>
-
-         
     </main>
 
-    
+     <footer>
+            <div class="container_footer" style="display: flex; justify-content: space-around;">
+                <div>
+                    
+                    <div class="redes_sociais flex_footer">
+                        <div class="item-rede"></div>
+                        <div class="item-rede"></div>
+                        <div class="item-rede"></div>
+                        <div class="item-rede"></div>
+                    </div>
+                </div>
+                <div class="links">
+                   
+                
+                        <nav class="link_footer flex_footer " style="align-items: start;">
+                            <a href="#" onclick="location.reload()">Home</a>
+                            <a href="sec_page/produtos/produtos.html">Produtos</a>
+                            <a href="#">Categórias</a>
+                            <a href="#">Sobre Nós</a>
+                        </nav>
+                </div>
+
+                <div class="coment-footer flex_footer">
+                    <input type="text" name="user" id="iuser" class="none_outline radius-coment" style="opacity: .8;" placeholder="Nome">
+                    <textarea name="depoimento none_outline" id="idepoimento" class="none_outline" placeholder="Comenta...">
+
+                    </textarea>
+
+                    <input type="button" class="radius-coment btn-comentar " value="Comentar">
+                </div>
+
+            </div>
+            <hr style="margin: 10px;">
+            <div class="right " style="text-align: center; font-style: italic; cursor: pointer;">&copy;BakongoInstic 2026</div>
+            
+        </footer>
+
+
 
     <script src="script/main.js"></script>
 </body>

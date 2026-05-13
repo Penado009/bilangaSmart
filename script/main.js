@@ -14,7 +14,7 @@ let cart = [];
             cart.push({ name, price });
             total += price;
             updateUI();
-            alert(name + " adicionado ao carrinho!");
+            // alert(name + " adicionado ao carrinho!");
         }
 
         function updateUI() {
@@ -66,3 +66,4 @@ let cart = [];
         }
     }
 }
+

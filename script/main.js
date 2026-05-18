@@ -26,7 +26,8 @@ let cart = [];
             cart.forEach((item, index) => {
                 list.innerHTML += `
                     <div class="cart-item">
-                        <span>${item.name}</span>
+                        
+                        <span>${item.name} </span>
                         <span>${item.price} Kz</span>
                     </div>
                 `;
@@ -50,14 +51,14 @@ let cart = [];
         function filterProducts() {
     // 1. Obter o texto da pesquisa e converter para minúsculas
     let input = document.getElementById('searchInput').value.toLowerCase();
-    
+
     // 2. Selecionar todos os cartões de produto
     let cards = document.getElementsByClassName('product-card');
 
     // 3. Percorrer cada cartão
     for (let i = 0; i < cards.length; i++) {
         let productName = cards[i].getElementsByTagName('h3')[0].innerText.toLowerCase();
-        
+
         // 4. Se o nome contiver o texto pesquisado, mostra. Se não, esconde.
         if (productName.includes(input)) {
             cards[i].style.display = "";
@@ -67,3 +68,18 @@ let cart = [];
     }
 }
 
+/*Catalogo prev e back*/
+
+const next_catal= document.querySelector('.next_catal');
+const prev_catal= document.querySelector('.prev_catal');
+
+next_catal.addEventListener( 'click', () => {
+    const item_catol = document.querySelectorAll('.item_catol');
+    document.querySelector('.slide_catal').appendChild(item_catol[0]);
+}
+)
+
+prev_catal.addEventListener('click', () =>{
+    const item_catol = document.querySelectorAll('.item_catol');
+    document.querySelector('.slide_catal').prepend(item_catol[item_catol.length - 1]);
+})

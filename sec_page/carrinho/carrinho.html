@@ -94,9 +94,93 @@
             font-size: large;
         }
 
-        
+        .cart-items {
+            background-color: #ffffffa7;
+            border-radius: 10px;
+            padding: 15px;
+            min-height: 300px;
+            max-height: 500px;
+            overflow-y: auto;
+        }
 
+        .cart-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px;
+            background-color: #fff;
+            border-radius: 8px;
+            margin-bottom: 10px;
+            border-left: 4px solid var(--primary);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
 
+        .cart-item-info {
+            flex: 1;
+        }
+
+        .cart-item-name {
+            font-weight: bold;
+            color: var(--primary);
+            margin-bottom: 5px;
+        }
+
+        .cart-item-price {
+            color: var(--accent);
+            font-weight: bold;
+            font-size: 14px;
+        }
+
+        .cart-item-quantity {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin: 0 15px;
+        }
+
+        .cart-item-quantity button {
+            width: 28px;
+            height: 28px;
+            border: none;
+            background-color: var(--primary);
+            color: white;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+
+        .cart-item-quantity button:hover {
+            background-color: var(--secondary);
+        }
+
+        .cart-item-quantity span {
+            min-width: 30px;
+            text-align: center;
+            font-weight: bold;
+        }
+
+        .cart-item-remove {
+            background-color: #f44336;
+            color: white;
+            border: none;
+            padding: 6px 12px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+
+        .cart-item-remove:hover {
+            background-color: #d32f2f;
+        }
+
+        .cart-empty {
+            text-align: center;
+            padding: 40px;
+            color: var(--primary);
+            font-size: 18px;
+        }
 
     </style>
 <body>
@@ -109,7 +193,7 @@
 
         <nav class="navbar">
             <a href="./../../index.html" >Home</a>
-            <a href="sec_page/produtos/produtos.html">Produtos</a>
+            <a href="./../produtos/produtos.html">Produtos</a>
             <a href="#">Categórias</a>
             <a href="#">Sobre Nós</a>
         </nav>
@@ -182,19 +266,22 @@
             <div id="cart-sidebar">
             
                 <h2 style="border-bottom: 2px solid #eee;">O Meu Pedido</h2>
-                <iframe class="cart-items" id="cart-list" >
-                    
-                </iframe>
+                <div class="cart-items" id="cart-list" >
+                    <div class="cart-empty">Carrinho vazio</div>
+                </div>
                 <div style="border-top: 2px solid #eee; padding-top: 15px;">
                     <h4>Total: <span id="total-price">0</span> Kz</h4>
-                    
+                    <button type="button" class="btn-checkout" onclick="finalizeOrder()" id="btn-finalize" style="display: none; width: 100%; margin-top: 10px;">ENVIAR PEDIDO VIA WHATSAPP</button>
+                    <button type="button" onclick="clearCartItems()" style="width: 100%; margin-top: 10px; background-color: #f44336; color: white; border: none; padding: 10px; border-radius: 5px; cursor: pointer;">Limpar Carrinho</button>
                 </div>
             </div>
         </section>
 
     </main>
 
+    <script src="./../../script/cart.js"></script>
     <script src="./../../script/main.js"></script>
+    <script src="./../../script/cart-page.js"></script>
 
     <footer>
             <div class="container_footer" style="display: flex; justify-content: space-around;">

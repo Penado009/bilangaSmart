@@ -144,7 +144,7 @@ function showNotification(message) {
     // Remover após 3 segundos
     setTimeout(() => {
         notification.style.animation = 'slideOut 0.3s ease-in-out';
-        setTimeout(() => notification.remove(), 300);
+        setTimeout(() => notification.remove(), 100);
     }, 3000);
 }
 

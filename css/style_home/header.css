@@ -16,6 +16,16 @@ header {
             z-index: 100;
         }
 
+         div.menu-hambur img {
+            background-color: #ffffff14;
+            width: 32px;
+            height: 32px;
+            
+        }
+
+        div.menu-hambur{
+            display: none;
+        }
 
         .cart-icon {
             position: relative;
@@ -63,6 +73,121 @@ header {
             transition: 0.3s;
         }
 
-        .navbar a:hover {
+        .navbar a:hover, .nav-movel a:hover {
             color: var(--accent);
         }
+
+         .nav_subCat{
+            background-color: #fff;
+            top: 100%;
+            left: -28px;
+            width: 200px;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(10px);
+            transition: opacity 0.3s ease, transform .3s ease, visibility .3s;
+            box-shadow: 0 10px 25px rgba(0, 0,0, 0.15);
+            border-radius: 8px;
+            overflow: hidden;
+            position: absolute;
+            padding: 20px 40px;
+            z-index: 100;
+            display: flex;
+            flex-flow: column nowrap;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .nav_subCat a{
+            color: rgb(1, 62, 1);
+        }
+
+        .link_categoria{
+            
+            position: relative;
+        }
+
+        .link_categoria:hover .nav_subCat{
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+        @media (max-width: 900px) {
+            .navbar a {
+                font-size: 1.1rem;
+                width: auto;
+                text-align: center;
+                padding: 10px 0;
+            }
+
+            header {
+                padding: 15px 20px;
+            }
+
+            
+        }
+
+        @media (max-width: 600px) {
+            header {
+                padding: 12px 16px;
+            }
+
+            .navbar  {
+                display: none;
+            }
+
+            .cart-icon {
+                font-size: 1.4rem;
+            }
+                    
+            div.menu-hambur {
+                cursor: pointer;
+                display: block;
+            }
+        }
+
+
+        
+        aside.menu-movel{
+            display: none;
+            width: 70vw;
+            height: 350px;
+            text-align: center;
+            position: fixed;
+            top: 0;
+            background-color: #fff;
+            z-index: 100;
+            
+        }
+
+        aside.menu-movel .nav-movel{
+            display: flex;
+            flex-flow: column nowrap;
+            justify-content: space-evenly;
+            gap: 10px;
+            width: 100%;
+            
+        }
+
+        .nav-movel a{
+            text-decoration: none;
+            padding: 10px 0px;
+            color: rgb(2, 64, 2);
+            font-weight: 900;
+        }
+
+        .close-cart{
+            position: absolute;
+            padding: 10px;
+            right: 0;
+            z-index: 10;
+        }
+
+        .close-cart:hover{
+            cursor: pointer;
+        }
+
+        
+
+
+            

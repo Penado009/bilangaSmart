@@ -27,14 +27,11 @@
             background-attachment: fixed;
             background-size: cover;
         }
-        section.main_carrinho{
-             /* position: relative;
-    top: -95px; */
-            
+        section.main_carrinho{            
             padding: 20px;
             display: grid;
             gap: 50px;
-            grid-template-columns: repeat(2, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             justify-content: center;
         }
 
@@ -107,7 +104,7 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 12px;
+            padding: 5px;
             background-color: #fff;
             border-radius: 8px;
             margin-bottom: 10px;
@@ -120,6 +117,7 @@
         }
 
         .cart-item-name {
+            
             font-weight: bold;
             color: var(--primary);
             margin-bottom: 5px;

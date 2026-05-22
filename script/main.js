@@ -1,14 +1,9 @@
 let cart = [];
         let total = 0;
 
-        // function openShop() {
-        //     document.getElementById('landing').style.display = 'none';
-        //     document.getElementById('shop-area').style.display = 'block';
-        // }
+         
+        
 
-        function toggleCart(show) {
-            document.getElementById('cart-sidebar').classList.toggle('active', show);
-        }
 
         function addToCart(name, price) {
             cart.push({ name, price });
@@ -70,16 +65,72 @@ let cart = [];
 
 /*Catalogo prev e back*/
 
-const next_catal= document.querySelector('.next_catal');
-const prev_catal= document.querySelector('.prev_catal');
+document.addEventListener('DOMContentLoaded', () => {
+    const next_catal = document.querySelector('.next_catal');
+    const prev_catal = document.querySelector('.prev_catal');
+    
 
-next_catal.addEventListener( 'click', () => {
-    const item_catol = document.querySelectorAll('.item_catol');
-    document.querySelector('.slide_catal').appendChild(item_catol[0]);
-}
-)
+    if (next_catal && prev_catal) {
+        next_catal.addEventListener('click', () => {
+            const item_catol = document.querySelectorAll('.item_catol');
+            const slideCatal = document.querySelector('.slide_catal');
+            if (slideCatal && item_catol.length) {
+                slideCatal.appendChild(item_catol[0]);
+            }
+        });
 
-prev_catal.addEventListener('click', () =>{
-    const item_catol = document.querySelectorAll('.item_catol');
-    document.querySelector('.slide_catal').prepend(item_catol[item_catol.length - 1]);
-})
+        prev_catal.addEventListener('click', () => {
+            const item_catol = document.querySelectorAll('.item_catol');
+            const slideCatal = document.querySelector('.slide_catal');
+            if (slideCatal && item_catol.length) {
+                slideCatal.prepend(item_catol[item_catol.length - 1]);
+            }
+        });
+    } 
+});
+
+    //PARA O MENU
+    const menu_hamburg = document.getElementById('hambur')
+    const menu_movel = document.querySelector('.menu-movel')
+    const close_cart = document.querySelector('.close-cart')
+
+
+
+    hambur.addEventListener('click', () =>{
+        menu_movel.classList.toggle('activo-menu')
+    })
+
+    close_cart.addEventListener('click', () =>{
+        menu_movel.classList.remove('activo-menu')
+    })
+
+    window.addEventListener('resize', () =>{{
+        if(window.innerWidth > 768){
+            menu_hamburg.classList.remove('activo-menu')
+        }
+    }})
+
+    
+    //PARA O CONTEÚDO DENTRO DE PRODUTOS
+
+    const product_grid = document.querySelector('.product-grid')
+
+    const dados = [{
+        img: 'TR.jpg', titulo: 'Banana', preco: 2000
+    },
+        {img: 'ws.jpg', titulo: 'Cove', preco: 1000
+    }  
+]   
+    product_grid.innerHTML = ''
+    product_grid.innerHTML = dados.map(elem =>
+        `<div class="product-card">
+                    <img src=${elem.img}>
+                    <div class="product-info">
+                        <h3>${elem.titulo}</h3>
+                        <p class="price">${elem.preco}</p>
+                        <button class="btn-add" onclick="addToCart('Mix de Vegetais', 1500)">🛒 Adicionar</button>
+                    </div>
+                </div>`
+    ).join('')
+
+

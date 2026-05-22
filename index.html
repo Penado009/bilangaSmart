@@ -1,31 +1,63 @@
 <!DOCTYPE html>
-<html lang="pt-ao">
+<html lang="pt-AO">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BILANGA Smart </title>
     <link rel="stylesheet" href="css/style_home/principal.css">
-    <link rel="shortcut icon" href="icon/favicon-32x32.png" type="image/x-icon">
+    <link rel="shortcut icon" href="icon/favicon.ico" type="image/x-icon">
 </head>
 
 <body style="overflow-x: hidden;">
     <header>
         <div id="logo">
-            <img src="icon/logo.png" alt="logo"
-                style="width: 100px; height: 50px; margin: 0; padding: 0; cursor: pointer;">
+            <a href="#" onclick="location.reload()">
+                <img src="icon/logo.png" alt="logo"
+                    style="width: 100px; height: 50px; margin: 0; padding: 0; cursor: pointer;">
+            </a>
+        </div>
+
+        <div class="menu-hambur" id="hambur">
+            <img src="icon/menu_humburguim.png" alt="Menu para dispositivos móveis" >
         </div>
 
         <nav class="navbar">
             <a href="#" onclick="location.reload()">Home</a>
             <a href="sec_page/produtos/produtos.html">Produtos</a>
-            <a href="#">Categórias</a>
-            <a href="#">Sobre Nós</a>
+
+
+            <div class="link_categoria">
+                <a href="#categoria" class="">Categórias
+                        
+                </a>
+                <nav class="nav_subCat ">
+                            <a href="#categoria">Horticulas</a>
+                            <a href="#categoria">Vegetais</a>
+                            <a href="#categoria">Frutos</a>
+                            <a href="#categoria">Tubercules</a>
+                
+                </nav>
+            </div>
+
+            <a href="sec_page/sobre/sobre.html">Sobre Nós</a>
         </nav>
         <a href="sec_page/carrinho/carrinho.html" class="cart-icon" >
             🛒 <span class="cart-count" id="count">0</span>
         </a>
     </header>
+
+    <aside class="menu-movel">
+        <span class="close-cart" >✖</span>
+        <nav class="nav-movel">
+            
+                <a href="#" onclick="location.reload()">Home</a>
+                <a href="sec_page/produtos/produtos.html">Produtos</a>
+                <a href="#categoria">Categórias</a>
+                <a href="sec_page/sobre/sobre.html">Sobre Nós</a>
+            
+        </nav>
+    </aside>
 
     <main>
         <section id="landing">
@@ -33,15 +65,6 @@
             <p class="p-muda" style="color: var(--accent); font-size: x-large;">Oferecemos produtos <br style="display: none;" class="quebra"> <span class="text_alt"></span></p>
             <button class="btn-shop" onclick="openShop()">VER PRODUTOS E COMPRAR</button>
         </section>
-        <!-- <aside id="cart-sidebar">
-            <span class="close-cart" onclick="toggleCart(false)">✖ Fechar</span>
-            <h3>O Meu Pedido</h3>
-            <div class="cart-items" id="cart-list"></div>
-            <div style="border-top: 2px solid #eee; padding-top: 15px;">
-                <h4>Total: <span id="total-price">0</span> Kz</h4>
-                <button class="btn-checkout" onclick="checkoutWhatsApp()">FINALIZAR VIA WHATSAPP</button>
-            </div>
-        </aside>  -->
 
         <!-- SECTION DESTAQUE-->
 
@@ -357,8 +380,8 @@
                         <nav class="link_footer flex_footer " style="align-items: start;">
                             <a href="#" onclick="location.reload()">Home</a>
                             <a href="sec_page/produtos/produtos.html">Produtos</a>
-                            <a href="#">Categórias</a>
-                            <a href="#">Sobre Nós</a>
+                            <a href="#categoria">Categórias</a>
+                            <a href="sec_page/sobre/sobre.html">Sobre Nós</a>
                         </nav>
                 </div>
 
@@ -379,8 +402,8 @@
 
 
     
-    <script src="script/cart.js"></script>
-    <script src="script/main.js"></script>
+    <script src="script/cart.js" ></script>
+    <script src="script/main.js" type="module"></script>
 </body>
 
 </html>

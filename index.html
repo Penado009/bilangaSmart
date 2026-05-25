@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BILANGA Smart </title>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link rel="stylesheet" href="css/style_home/principal.css">
     <link rel="shortcut icon" href="icon/favicon.ico" type="image/x-icon">
 </head>
@@ -78,7 +79,10 @@
                 <div class="content_destaq">
                     <div class="item_destaq">
 
-                    <div class="product-card">
+                    <div class="product-card"
+                        data-aos="flip-left"
+                        data-aos-duration="1200"
+                    >
                         <img src="sec_page/produtos/mb.jpg">
                         <div class="product-info">
                             <h3>Bananas Seleccionadas</h3>
@@ -87,7 +91,10 @@
                         </div>
                     </div>
 
-                    <div class="product-card">
+                    <div class="product-card"
+                        data-aos="flip-left"
+                        data-aos-duration="1200"
+                    >
                         <img src="sec_page/produtos/mb.jpg">
                         <div class="product-info">
                             <h3>Bananas Seleccionadas</h3>
@@ -96,7 +103,10 @@
                         </div>
                     </div>
 
-                    <div class="product-card">
+                    <div class="product-card"
+                        data-aos="flip-left"
+                        data-aos-duration="1200"
+                    >
                         <img src="sec_page/produtos/mb.jpg">
                         <div class="product-info">
                             <h3>Bananas Seleccionadas</h3>
@@ -106,7 +116,10 @@
                     </div>
 
 
-                    <div class="product-card">
+                    <div class="product-card"
+                        data-aos="flip-left"
+                        data-aos-duration="1200"
+                    >
                         <img src="sec_page/produtos/mb.jpg">
                         <div class="product-info">
                             <h3>Bananas Seleccionadas</h3>
@@ -115,7 +128,10 @@
                         </div>
                     </div>
 
-                    <div class="product-card">
+                    <div class="product-card"
+                        data-aos="flip-left"
+                        data-aos-duration="1200"
+                    >
                         <img src="sec_page/produtos/mb.jpg">
                         <div class="product-info">
                             <h3>Bananas Seleccionadas</h3>
@@ -124,7 +140,10 @@
                         </div>
                     </div>
 
-                    <div class="product-card">
+                    <div class="product-card"
+                        data-aos="flip-left"
+                        data-aos-duration="1200"
+                    >
                         <img src="sec_page/produtos/mb.jpg">
                         <div class="product-info">
                             <h3>Bananas Seleccionadas</h3>
@@ -146,8 +165,12 @@
         <section id="categoria">
             <h2 class="h2_section h2_center">Categoria de Produtos</h2>
 
-            <div class="container_catal">
-                <div class="slide_catal">
+            <div class="container_catal"
+                
+            >
+                <div class="slide_catal"
+                    
+                >
 
                     <div class="item_catol" style="background-image: url(sec_page/produtos/DR.jpg);">
                         <div class="content_catal" >
@@ -221,7 +244,9 @@
 
             <div class="all">
 
-                <details class="quest">
+                <details data-aos="fade-up"
+                data-aos-easing="ease-in-sine"
+     data-aos-duration="800" class="quest">
                     <summary>Pergunta 1</summary>
                     <div class="text_respost">
                         Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vitae pariatur laborum dolorum quaerat aut
@@ -230,7 +255,12 @@
                     </div>
 
                 </details>
-                <details class="quest">
+                <details
+                    data-aos="fade-up"
+                    data-aos-easing="ease-in-sine"
+                    data-aos-duration="800"
+                    data-aos-delay="300"
+                class="quest">
                     <summary>Pergunta 2</summary>
                     <div class="text_respost">
                         Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vitae pariatur laborum dolorum quaerat aut
@@ -239,7 +269,13 @@
                     </div>
 
                 </details>
-                <details class="quest">
+                <details
+                    data-aos="fade-up"
+                    data-aos-easing="ease-in-sine"
+                    data-aos-duration="800"
+                    data-aos-delay="600"
+                
+                class="quest">
                     <summary>Pergunta 3</summary>
                     <div class="text_respost">
                         Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vitae pariatur laborum dolorum quaerat aut
@@ -248,7 +284,12 @@
                     </div>
 
                 </details>
-                <details class="quest">
+                <details
+                    data-aos="fade-up"
+                    data-aos-easing="ease-in-sine"
+                    data-aos-duration="800"
+                    data-aos-delay="900"
+                class="quest">
                     <summary>Pergunta 4</summary>
                     <div class="text_respost">
                         Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vitae pariatur laborum dolorum quaerat aut
@@ -257,7 +298,12 @@
                     </div>
 
                 </details>
-                <details class="quest">
+                <details
+                    data-aos="fade-up"
+                    data-aos-easing="ease-in-sine"                    
+                    data-aos-duration="800"
+                    data-aos-delay="1200"
+                class="quest">
                     <summary>Pergunta 5</summary>
 
                     <div class="text_respost">
@@ -405,6 +451,10 @@
     
     <script src="script/cart.js" ></script>
     <script src="script/main.js" type="module"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init();
+    </script>
 </body>
 
 </html>

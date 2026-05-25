@@ -8,6 +8,11 @@
             padding: 30px 5%;
         }
 
+        .container-cadastrar {
+    max-height: calc(100vh - 120px);
+    overflow-y: auto;
+}
+
         /* DASH PRODUTOS */
         section h2{
             padding: 20px 0;

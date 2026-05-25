@@ -22,11 +22,11 @@ menuProDash.addEventListener('click', (e) =>{
 
 //CONTEUDO PARA AREA STOCK
 const produt = [
-    {url: '../sec_page/produtos/milho.jpg', titulo: "Mix de Vegetais", preco: 1500},
-    {url: 'DR.jpg', titulo: "Bananas Seleccionadas", preco: 800},
-    {url: 'DR.jpg', titulo: "Cenouras Premium", preco: 500},
-    {url: 'DR.jpg', titulo: "Lote Mercado", preco: 2500},
-    {url: 'DR.jpg', titulo: "Couve", preco: 600},
+    {url: '../../sec_page/produtos/milho.jpg', titulo: "Mix de Vegetais", preco: 1500},
+    {url: '../../sec_page/produtos/milho.jpg', titulo: "Bananas Seleccionadas", preco: 800},
+    {url: '../../sec_page/produtos/milho.jpg', titulo: "Cenouras Premium", preco: 500},
+    {url: '../../sec_page/produtos/milho.jpg', titulo: "Lote Mercado", preco: 2500},
+    {url: '../../sec_page/produtos/milho.jpg', titulo: "Couve", preco: 600},
 ]
                
 //PARA QUE O CONTAINER NÃO COMEÇE FAZIO

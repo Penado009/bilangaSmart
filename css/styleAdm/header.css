@@ -1,0 +1,120 @@
+@charset 'UTF-8';
+
+:root {
+            --primary: #1b5e20;
+            --secondary: #2e7d32;
+            --accent: #ffa000;
+            --light: #f4f7f6;
+            --white: #ffffff;
+            --shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', sans-serif; }
+
+        body { background-color: var(--light); color: #333; }
+
+        /* HEADER */
+        header {
+            width: 60vw;
+            height: 100vh;
+            background: var(--primary);
+            color: white;
+            display: none;
+            flex-flow: column nowrap;
+            position: fixed;
+            top: 0;
+            z-index: 1000;
+        }
+
+        
+
+        .active-header{
+            display: flex;
+        }
+
+        .desat{
+            display: none;
+        }
+
+        
+
+        .subMenu{
+            display: flex; 
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+            padding: 10px;
+            background: rgba(27, 94, 31, 0.447);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+        }
+        
+
+        .dash-hambur:hover{
+            cursor: pointer;
+        }
+
+        .dash-hambur img{
+            width: 32px;
+            height: 32px;
+            background-color: rgba(0, 0, 0, 0.457);
+            border-radius: 5px;
+        }
+
+        h1{
+            padding: 20px 10px ;
+        }
+
+        .nav-dash{
+            height: 50%;
+            display: flex;
+            flex-flow: column nowrap;
+            justify-content: space-evenly;
+                   
+        }
+
+        .nav-dash a{
+            font-size: 1.2em;
+            color: white;
+            text-decoration: none;
+            margin-left: 20px;
+            font-weight: bold; 
+        }
+
+        .nav-dash a:hover{
+            color: var(--accent);
+        }
+
+        
+            div.menu-dash{
+                display: none;                
+            }
+
+        @media(min-width: 600px){
+            div.subMenu{
+                display: none;
+            }
+
+            div.menu-dash{
+            
+                height: 100vh;
+                background: var(--primary);
+                color: white;
+                display: flex;
+                flex-flow: column nowrap;
+                
+            }
+
+            .nav-dash a{
+                font-size: 1em;
+            }
+
+            main{
+                display: grid;
+                grid-template-columns: 200px 1fr;
+                gap: 20px;
+            }
+        }
+
+
+    

@@ -94,8 +94,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const menu_movel = document.querySelector('.menu-movel')
     const close_cart = document.querySelector('.close-cart')
 
-
-
     hambur.addEventListener('click', () =>{
         menu_movel.classList.toggle('activo-menu')
     })
@@ -111,26 +109,42 @@ document.addEventListener('DOMContentLoaded', () => {
     }})
 
     
-    //PARA O CONTEÚDO DENTRO DE PRODUTOS
+   // Área onde os produtos serão inseridos
+const productGrid = document.querySelector('.product-grid')
 
-    const product_grid = document.querySelector('.product-grid')
 
-    const dados = [{
-        img: 'TR.jpg', titulo: 'Banana', preco: 2000
+// Dados dos produtos
+const dados = [
+    {
+        img: 'TR.jpg',
+        titulo: 'Banana',
+        preco: 2000
     },
-        {img: 'ws.jpg', titulo: 'Cove', preco: 1000
-    }  
-]   
-    product_grid.innerHTML = ''
-    product_grid.innerHTML = dados.map(elem =>
-        `<div class="product-card">
-                    <img src=${elem.img}>
-                    <div class="product-info">
-                        <h3>${elem.titulo}</h3>
-                        <p class="price">${elem.preco}</p>
-                        <button class="btn-add" onclick="addToCart('Mix de Vegetais', 1500)">🛒 Adicionar</button>
-                    </div>
-                </div>`
-    ).join('')
+    {
+        img: 'ws.jpg',
+        titulo: 'Couve',
+        preco: 1000
+    }
+]
 
+// Renderizar produtos
+productGrid.innerHTML = dados.map(elem => `
+    <div class="product-card">
+        <img src="${elem.img}" alt="${elem.titulo}">
 
+        <div class="product-info">
+            <h3>${elem.titulo}</h3>
+
+            <p class="price">
+                ${elem.preco} Kz
+            </p>
+
+            <button 
+                class="btn-add"
+                onclick="addToCart('${elem.titulo}', ${elem.preco})"
+            >
+                🛒 Adicionar
+            </button>
+        </div>
+    </div>
+`).join('')

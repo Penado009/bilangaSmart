@@ -48,7 +48,7 @@ span.text_alt::after {
     opacity: 0;
     color: white;
     font-weight: bolder;
-    text-transform: uppercase;
+    text-transform: capitalize;
     animation: muda 5s 1s ease infinite;
 }
 

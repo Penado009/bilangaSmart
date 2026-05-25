@@ -132,6 +132,10 @@
         padding: 10px 12px;
     }
 
+    #landing{
+        height: 70vh;
+    }
+
     aside.menu-movel.activo-menu{
         display: flex;
     }
@@ -149,6 +153,24 @@
         font-size: 1.3rem;
     }
 
+     .product-card img {
+            max-height: 150px;
+        }
+
+       .btn-add {
+           
+            padding: 6px;
+        }
+
+         .product-info {
+            padding: 10px;
+            
+        }
+
+        .price {
+            font-size: 1rem;
+            margin: 7px 0;
+        }
     
 
     .about-hero {

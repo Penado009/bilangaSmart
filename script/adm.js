@@ -29,7 +29,7 @@
 
      //Frequencia diaria
 
-     new CharacterData(document.getElementById('graficDiario'), {
+     new Chart(document.getElementById('graficDiario'), {
         type: 'line',
         data: {
             labels: ['Seg', 'Ter', 'Quart', 'Qui', 'Sex', 'Sáb', 'Dom'],
@@ -49,13 +49,13 @@
      })
 
      //Vendas mensais
-     new CharacterData(document.getElementById('graficMensal'), {
+     new Chart(document.getElementById('graficMensal'), {
         type: 'bar',
         data: {
             labels: ['Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun', 'Jul', 'Ago', 'Set', 'Out', 'Nov', 'Dez'],
             datasets: [{
                 label: 'kz',
-                data: [120000, 150000, 180000, 160000, 200000, 220000],
+                data: [120000, 150000, 180000, 160000, 200000, 220000, 160000, 200000, 220000, 160000, 200000, 220000, 220000],
                 backgroundColor: '#2196f3'
             }]
         },
@@ -66,7 +66,7 @@
 
 
      //Produto mais vendidos
-     new CharacterData(document.getElementById('graficVendido'), {
+     new Chart(document.getElementById('graficVendido'), {
         type: 'doughnut',
         data: {
             labels: ['Horticula', 'Tubercule', 'Vegetal', 'Fruta'],

@@ -9,9 +9,9 @@
         }
 
         .container-cadastrar {
-    max-height: calc(100vh - 120px);
-    overflow-y: auto;
-}
+            max-height: calc(100vh - 120px);
+            overflow-y: auto;
+        }
 
         /* DASH PRODUTOS */
         section h2{
@@ -105,6 +105,65 @@
         }
 
         .btn-submit:hover { background: var(--secondary); }
+
+        /* VENDAS */
+        
+        
+        .contTab {
+            overflow-x: auto;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;    
+        }
+        tr, td {
+            text-align: center;
+            border: 1px solid #918f8f;
+        }
+        th {
+            background: rgba(0, 128, 0, 0.434);
+            padding: 5px;
+            color: white;
+        }
+
+        tr select{
+            outline: none;
+           
+        }
+
+
+        tr:hover {
+            background: #8cd7a138;
+        }
+
+        td:nth-child(1){
+            font-size: medium;
+            font-weight: bold;
+        }
+
+        td:nth-child(2){
+            color: #2196f3;
+            text-decoration: none;
+            cursor: pointer;
+        }
+        td:nth-child(2):hover{
+            color: #00569c;    
+        }
+
+        td:nth-child(4){
+            font-style: italic;
+            font-weight: bold;
+        }
+
+        td:last-child{
+            color: var(--secondary);
+            font-weight: bold;
+        }
+        
+        td:last-child:hover{
+            color: var(--accent);
+            cursor: pointer;
+        }
 
         @media (min-width: 600px){
             .container{

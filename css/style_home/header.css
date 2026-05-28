@@ -94,7 +94,7 @@ header {
             z-index: 100;
             display: flex;
             flex-flow: column nowrap;
-            align-items: center;
+            align-items: start;
             gap: 10px;
         }
         

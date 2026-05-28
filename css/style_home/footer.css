@@ -21,13 +21,13 @@
 
        
 
-        div.redes_sociais .item-rede{
+        /*div.redes_sociais{
             text-decoration: none;
             width: 30px;
             height: 30px;
             border-radius: 50%;
             background-color: #ddd;
-        }
+        }*/
         
         nav.link_footer a{
             font-weight: bold;
@@ -60,6 +60,7 @@
         }
 
         .btn-comentar:hover{
-            background-color: #03a90e;
+            background-color: #f6f8f6;
+            color: #10ae20;
         }
 

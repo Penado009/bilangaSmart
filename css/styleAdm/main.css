@@ -106,6 +106,66 @@
 
         .btn-submit:hover { background: var(--secondary); }
 
+
+        /* para validar os formes */
+        .input-error{
+    border:1px solid #dc3545 !important;
+    box-shadow:0 0 5px rgba(220, 53, 70, 0.187);
+}
+        #mensagemFormulario{
+
+    display:none;
+
+    padding:12px 15px;
+
+    border-radius:8px;
+
+    margin-bottom:18px;
+
+    font-size:15px;
+
+    font-weight:500;
+
+    transition:.3s;
+
+}
+
+#mensagemFormulario.sucesso{
+
+    display:block;
+
+    background:#d1fae5;
+
+    color:#065f46;
+
+    border-left:5px solid #10b981;
+
+}
+
+#mensagemFormulario.erro{
+
+    display:block;
+
+    background:#fee2e2;
+
+    color:#991b1b;
+
+    border-left:5px solid #ef4444;
+
+}
+
+#mensagemFormulario.aviso{
+
+    display:block;
+
+    background:#fef3c7;
+
+    color:#92400e;
+
+    border-left:5px solid #f59e0b;
+
+}
+
         /* VENDAS */
         
         

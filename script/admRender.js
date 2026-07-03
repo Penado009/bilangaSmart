@@ -9,6 +9,7 @@ menuProDash.addEventListener('click', (e) =>{
 
     e.preventDefault()
     const page = e.target.dataset.page
+    
 
 
     document.querySelectorAll('#inavProDash a').forEach(a => a.classList.remove('ative'))
@@ -16,7 +17,9 @@ menuProDash.addEventListener('click', (e) =>{
 
     document.getElementById('icontainerCadastrar').classList.remove('product-grid')
 
+  
     container.innerHTML = renderizar(page)
+
     setupInvoiceButtons()
     setupCadastroButton()
     setupProductButtons()
@@ -180,41 +183,150 @@ const produtos = await getProdutos()
 const pedidos = await getPedidos()
 
 function setupCadastroButton() {
-    const btn = document.getElementById('submitCadastro')
-    if (!btn || btn.dataset.listenerAttached === 'true') return
 
-    btn.addEventListener('click', async () => {
-        const fileInput = document.getElementById('iproduto-image')
+    const btn = document.getElementById("submitCadastro");
+    if (!btn) return;
+
+    btn.addEventListener("click", async () => {
+
+        const nome = document.getElementById("inome");
+        const categoria = document.getElementById("icategoria");
+        const preco = document.getElementById("ipreco");
+        const unidade = document.getElementById("iunidade");
+        const estado = document.getElementById("iestado");
+        const descricao = document.getElementById("idescricao");
+        const imagem = document.getElementById("iproduto-image");
+
+        // Remove estilos de erro anteriores
+        document.querySelectorAll(".input-error").forEach(el => {
+            el.classList.remove("input-error");
+        });
+
+        const erros = [];
+
+        // Nome
+        if (!nome.value.trim()) {
+            erros.push("Informe o nome do produto.");
+            nome.classList.add("input-error");
+        }
+
+        // Categoria
+        if (!categoria.value) {
+            erros.push("Selecione uma categoria.");
+            categoria.classList.add("input-error");
+        }
+
+        // Preço
+        if (!preco.value || Number(preco.value) <= 0) {
+            erros.push("Informe um preço válido.");
+            preco.classList.add("input-error");
+        }
+
+        // Unidade
+        if (!unidade.value) {
+            erros.push("Selecione a unidade.");
+            unidade.classList.add("input-error");
+        }
+
+        // Estado
+        if (!estado.value || estado.value === "Estado do produto") {
+            erros.push("Selecione o estado do produto.");
+            estado.classList.add("input-error");
+        }
+
+        // Descrição
+        if (!descricao.value.trim()) {
+            erros.push("Informe a descrição.");
+            descricao.classList.add("input-error");
+        }
+
+        // Imagem
+        if (!imagem.files.length) {
+            erros.push("Selecione uma imagem.");
+            imagem.classList.add("input-error");
+        }
+
+        // Se houver erros
+        if (erros.length > 0) {
+            alert(erros.join("\n"));
+            return;
+        }
+
         const produto = {
-            nome: document.getElementById('inome').value,
-            categoria: document.getElementById('icategoria').value,
-            preco: Number(document.getElementById('ipreco').value),
-            estado: document.getElementById('iestado').value,
-            descricao: document.getElementById('idescricao').value
+            nome: nome.value.trim(),
+            categoria: categoria.value,
+            preco: Number(preco.value),
+            unidade: unidade.value,
+            estado: estado.value,
+            descricao: descricao.value.trim()
+        };
 
-        }
+        const formData = new FormData();
 
-        const formData = new FormData()
-        Object.entries(produto).forEach(([key, value]) => formData.append(key, value))
-        if (fileInput?.files?.[0]) {
-            formData.append('imagem', fileInput.files[0])
-        }
-        
+        Object.entries(produto).forEach(([key, value]) => {
+            formData.append(key, value);
+        });
+
+        formData.append("imagem", imagem.files[0]);
+
         try {
-            const resposta = await criarProduto(formData)
 
-            console.log('Produto criado:', resposta)
-            alert('Produto cadastrado com sucesso!')
+            btn.disabled = true;
+            btn.textContent = "Cadastrando...";
+
+            const resposta = await criarProduto(formData);
+
+            console.log(resposta);
+
+            mostrarMensagem(
+    "sucesso",
+    "Produto cadastrado com sucesso!"
+);
+
+            document.getElementById("formCadastrar").reset();
+
         } catch (erro) {
-            console.error(erro)
-            alert('Erro ao cadastrar produto')
-        }
-    })
 
-    btn.dataset.listenerAttached = 'true'
+            console.error(erro);
+
+            mostrarMensagem(
+    "erro",
+    "Não foi possível cadastrar o produto."
+);
+
+        } finally {
+
+            btn.disabled = false;
+            btn.textContent = "Adicionar Produto";
+
+        }
+
+    });
+
 }
 
 setupCadastroButton()
+//PARA OS ERRO
+function mostrarMensagem(tipo, mensagem){
+
+    const box = document.getElementById("mensagemFormulario");
+
+    box.className = "";
+
+    box.classList.add(tipo);
+
+    box.textContent = mensagem;
+
+    box.style.display = "block";
+
+    setTimeout(()=>{
+
+        box.style.display = "none";
+
+    },5000);
+
+}
+
 
 // FUNÇÃO PARA EDITAR E ELIMINAR PRODUTOS
 function setupProductButtons() {
@@ -387,6 +499,8 @@ function renderizar(page){
             return  `
             <div class="sidebar-card">
             <h3>Registo de Nova Entrada</h3>
+            <div id="mensagemFormulario"></div>
+
             <form id="formCadastrar">
             <div class="form-group">
             <input id="inome" required type="text" placeholder="Nome do produto">
@@ -409,19 +523,36 @@ function renderizar(page){
             <div class="form-group">
             <input required id="ipreco" type="number" min="0" placeholder="Preço em Kwanza">
 
-            <select required id="iestado" name="estado">
-            <option >Estado do produto</option>
-            <option value="true">Disponível</option>
-            <option value="false">Indisponível</option>
+            <select id="iunidade">
+                <option value="KG">Kg</option>
+                <option value="G">Gramas</option>
+                <option value="UN">Unidade</option>
+                <option value="CX">Caixa</option>
+                <option value="SACO">Saco</option>
+                <option value="LITRO">Litro</option>
             </select>
+
+            
             
             </div>
 
             <div class="form-group">
             <input required type="file" name="produto-image" id="iproduto-image" placeholder="Insira a imagem">
-            <textarea required name="descricao" id="idescricao" class="descricao"></textarea>
+            <select required id="iestado" name="estado">
+            <option >Estado do produto</option>
+            <option value="true">Disponível</option>
+            <option value="false">Indisponível</option>
+            </select>
             </div>
-            <button type="button" class="btn-submit">Adicionar Produto</button>
+            
+            <div class="form-group">
+            
+            <textarea name="descricao" id="idescricao" placeholder="Descrição do produto"></textarea>
+            </div>
+            
+
+            <button type="button" class="btn-submit" id="submitCadastro"
+>Adicionar Produto</button>
             </form>
             </div>
             `
@@ -432,7 +563,7 @@ function renderizar(page){
                     <img src="http://localhost:8080${el.imagemUrl}">
                     <div class="product-info">
                         <h3>${el.nome}</h3>
-                        <p class="price">${el.preco} Kz / kg</p>
+                        <p class="price">${el.preco} Kz / ${el.unidade}</p>
                         <button class="btn-publicar" data-titulo="${el.nome}" data-preco="${el.preco}" >Publicar</button>
                         <button class="btn-editar" data-id="${el.id}" data-titulo="${el.nome}" data-preco="${el.preco}" >Editar</button>
                         <button class="btn-eliminar" data-id="${el.id}" data-titulo="${el.nome}" data-preco="${el.preco}" >Eliminar</button>
@@ -449,62 +580,6 @@ function renderizar(page){
             container.classList.add('product-grid')
             return "<h2>Page horticulas em construção...</h2>"
         
-
-        //  PARA RENDERIZAR NA PAGE VENDAS TAMBÉM
-
-            case "diaria":
-                return `
-                    <div class="contTab">
-           <table  >
-            
-        <tr>
-           
-            <th>Nome</th>
-            <th>Email</th>
-            <th>Produtos</th>
-            <th>Valor</th>
-            <th>Telefone</th>
-            <th>Endereço</th>
-            <th>Status</th>
-            <th>Data</th>
-            <th>Factura</th>
-                   
-        </tr>
-        ${pedidos.map(dados =>`
-        <tr>
-            <td>${dados.cliente}</td>
-            <td>xxx</td>
-            <td>
-            <select name="" id="" style="width: 100%; padding: 10px;">
-                
-                   
-                    ${dados.itensPedido.map(prod => `<option value="" disabled  >${prod.produtoNome}: ${prod.precoUnitario}   x${prod.quantidade} = ${prod.subtotal}</option>`).join("")}
-            
-                </select> 
-         
-            </td>
-
-            <td>${dados.total}</td>
-            <td>${dados.telefone}</td>
-            <td>${dados.endereco}</td>
-            <td>${dados.status}</td>
-            <td>${dados.dataPedido}</td>
-            <td class="invoice-btn" data-index="${dados.id}">Gerar</td>
-        </tr>
-         `).join("")}
-    </table>
-        </div>
-                `
-            case "mensal":
-                
-            return pedidos.map(elemet => `
-                    <h2>${elemet.cliente}</h2>
-                `).join("")
-
-            case "anual":
-                return '<h2>Aguardando tabela de vendas anual...</h2>'
-            case "relatio":   
-                return '<h2>Aguardando tabela de relatório...</h2>'
         default:
             return '<h2>Nada encontrado</h2>'
     }

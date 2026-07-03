@@ -83,7 +83,7 @@
             margin-bottom: 15px; 
         }
         .form-group label { display: block; font-size: 0.85rem; font-weight: bold; margin-bottom: 5px; }
-        .form-group input, textarea, select#iestado{
+        .form-group input, textarea, select{
             resize: none;
             width: 100%;
             padding: 12px;
@@ -170,6 +170,7 @@
                 display: flex;
                 justify-content: space-between;
                 padding: 0;
+                
             }
 
             .container-grafico {

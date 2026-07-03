@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pedidos</title>
+    <link rel="shortcut icon" href="../../icon/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="../../css/styleAdm/header.css">
+    <link rel="stylesheet" href="../../css/styleAdm/main.css">
+    <link rel="stylesheet" href="../../css/styleAdm/pedidos.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=visibility" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=cancel" />
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=cached" />
+
+</head>
+<body>
+     <header class="menu-mobil">
+        <div style="display: flex; justify-content: space-between;">
+            <h1>Pedidos</h1>
+            <span class="close-cart" style="padding: 10px; cursor: pointer;">✖</span>
+        </div>
+        <nav class="nav-dash" >
+            <a href="../dashboard.html">INÍCIO</a>
+            <a href="../produtos/prod.html">PRODUTOS</a>
+            <a href="#">PEDIDOS</a>
+            <a href="#">USUÁRIO</a>
+        </nav>
+    </header>
+
+        
+    <!-- Menu -->
+     <div class="subMenu" >
+
+        <div class="logo">
+            <img src="../../icon/logo.png" style="width: 100px; height: 50px; margin: 0; padding: 0; cursor: pointer;" alt="">
+        </div>
+         
+        <div class="dash-hambur" id="idash-hambur" >
+            <img src="../../icon/menu_humburguim.png" alt="Menu para dispositivos móveis" >
+        </div>
+     </div>
+
+    <main>
+
+        <!-- MENU PARA TELAS GRANDES -->
+        <div class="menu-dash">
+            
+            <div class="logo">
+                <img src="../../icon/logo.png" style="width: 100%; height: 80px; margin: 0; padding: 5px; cursor: pointer;" alt="">
+            </div>
+            <nav class="nav-dash">
+                <a href="../dashboard.html">INÍCIO</a>
+                <a href="../produtos/prod.html">PRODUTOS</a>
+            <a href="#">PEDIDOS</a>
+                <a href="#">USUÁRIO</a>
+            </nav>
+        </div>
+
+        <!-- <section class="produtos-dash" >
+
+            
+            <h2>Vendas</h2>
+
+            <nav class="navProDash" id="inavProDash">
+                <a data-page="diaria">Diaria</a>
+                <a data-page="mensal">Mensal</a>
+                <a data-page="anual">Anual</a>
+                <a data-page="relatio">Relatório</a>
+        
+            </nav>
+            
+            <div class="container-cadastrar  containerVendas" id="icontainerCadastrar">
+                
+            </div>
+        </section> -->
+
+        
+    <section class="pedidos">
+
+    <!-- Cabeçalho -->
+    <div class="headerPage">
+
+        <div>
+            <h2>Pedidos</h2>
+            <p>Gerencie todos os pedidos realizados.</p>
+        </div>
+
+        <div class="acoesHeader">
+
+            <button  id="btnPDF" class="btnPDF">
+                <i class="fa-solid fa-file-pdf"></i>
+
+                Exportar PDF
+            </button>
+
+            <button class="btnSecundario" id="btnExcel">
+                <i class="fa-solid fa-file-excel"></i>
+                    Exportar Excel
+            </button>
+
+        </div>
+
+    </div>
+
+    <!-- Cards -->
+
+    <div class="cardsResumo">
+
+        <div class="cardResumo">
+            <h4>Total de Pedidos</h4>
+            <span id="totalPedidos">0</span>
+        </div>
+
+        <div class="cardResumo">
+            <h4>Processando</h4>
+            <span id="pedidosProcessando">0</span>
+        </div>
+
+        <div class="cardResumo">
+            <h4>Pendentes</h4>
+            <span id="pedidosPendentes">0</span>
+        </div>
+
+        <div class="cardResumo">
+            <h4>Entregues</h4>
+            <span id="pedidosEntregues">0</span>
+        </div>
+
+        <div class="cardResumo">
+            <h4>Cancelados</h4>
+            <span id="pedidosCancelados">0</span>
+        </div>
+
+        <div class="cardResumo">
+            <h4>Valor Total</h4>
+            <span id="valorTotal">0 Kz</span>
+        </div>
+
+    </div>
+
+    <!-- Filtros -->
+
+    <div class="filtros">
+
+        <input
+            type="text"
+            id="pesquisar"
+            placeholder="Pesquisar cliente..."
+        >
+
+        <input
+            type="date"
+            id="dataInicio"
+        >
+
+        <input
+            type="date"
+            id="dataFim"
+        >
+
+        <select id="status">
+
+            <option value="">Todos</option>
+
+            <option>PENDENTE</option>
+
+            <option>PROCESSANDO</option>
+
+            <option>ENTREGUE</option>
+
+            <option>CANCELADO</option>
+
+        </select>
+
+        <button class="btnPrincipal">
+
+            Filtrar
+
+        </button>
+
+    </div>
+
+    <!-- Tabela -->
+
+    <div class="tabelaContainer">
+
+        <table>
+
+            <thead>
+
+                <tr>
+
+                    <th>Nº</th>
+
+                    <th>Cliente</th>
+
+                    <th>Telefone</th>
+
+                    <th>Data Pedido</th>
+
+                    <th>Entrega</th>
+
+                    <th>Quantidade</th>
+
+                    <th>Valor</th>
+
+                    <th>Status</th>
+
+                    <th>Ações</th>
+
+                </tr>
+
+            </thead>
+
+            <tbody id="tbodyPedidos">
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+    <!-- Paginação -->
+
+    <div class="paginacao">
+
+    </div>
+
+
+    <!-- MODAL -->
+
+    <div class="modalPedido oculto" id="modalPedido">
+
+    <div class="modalConteudo">
+
+        <div class="modalHeader">
+
+            <h2>Detalhes do Pedido</h2>
+
+            <button id="fecharModal">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+
+        </div>
+
+        <div class="modalBody">
+
+            <div class="dadosPedido">
+
+                <div class="item">
+                    <strong>Nº Pedido</strong>
+                    <span id="mPedido"></span>
+                </div>
+
+                <div class="item">
+                    <strong>Cliente</strong>
+                    <span id="mCliente"></span>
+                </div>
+
+                <div class="item">
+                    <strong>Telefone</strong>
+                    <span id="mTelefone"></span>
+                </div>
+
+                <div class="item">
+                    <strong>Endereço</strong>
+                    <span id="mEndereco"></span>
+                </div>
+
+                <div class="item">
+                    <strong>Data Pedido</strong>
+                    <span id="mDataPedido"></span>
+                </div>
+
+                <div class="item">
+                    <strong>Data Entrega</strong>
+                    <span id="mDataEntrega"></span>
+                </div>
+
+                <div class="item">
+                    <strong>Status</strong>
+                    <span id="mStatus"></span>
+                </div>
+
+                <div class="item">
+                    <strong>Valor Total</strong>
+                    <span id="mValor"></span>
+                </div>
+
+            </div>
+
+            <hr>
+
+            <h3>Produtos do Pedido</h3>
+
+            <table class="tabelaProdutos">
+
+                <thead>
+
+                    <tr>
+
+                        <th>Produto</th>
+                        <th>Qtd</th>
+                        <th>Preço</th>
+                        <th>Subtotal</th>
+
+                    </tr>
+
+                </thead>
+
+                <tbody id="listaProdutosPedido">
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </div>
+
+</div>
+
+</section>
+
+    </main>
+
+    <script src="../../script/adm.js"></script>
+    <script src="../../script/renderPedidos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/xlsx/dist/xlsx.full.min.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/jspdf@3.0.1/dist/jspdf.umd.min.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/jspdf-autotable"></script>
+
+</body>
+</html>

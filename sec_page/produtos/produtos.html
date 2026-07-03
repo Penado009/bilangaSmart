@@ -4,26 +4,62 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Produtos</title>
-    <link rel="stylesheet" href="../../css/style_home/footer.css">
+    <link rel="shortcut icon" href="../../icon/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="../../css/style_home/principal.css">
     <link rel="stylesheet" href="./../../css/style_produtos/main.css">
+    <link rel="stylesheet" href="../../css/cards.css">
+    <link rel="stylesheet" href="../../css/responsivo.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
-<body style="background-color: #FFF;">
+<body style="background-color: #FFF; height: 100vh;">
     <header>
         <div id="logo">
-            <img src="/icon/logo.png" alt="logo" style="width: 100px; height: 50px; margin: 0; padding: 0; cursor: pointer;">
+            <a href="../../index.html">
+                <img src="../../icon/logo.png" alt="logo" class="logo-img">
+            </a>
         </div>
-        
+
+        <div class="menu-hambur" id="hambur">
+            <img src="../../icon/menu_humburguim.png" alt="Menu para dispositivos móveis" >
+        </div>
+
         <nav class="navbar">
-            <a href="../../index.html">Home</a>
-            <a href="produtos.html" >Produtos</a>
-            <a href="#">Categórias</a>
-            <a href="#">Sobre Nós</a>
+            <a href="../../index.html" >Home</a>
+            <a href="#" >Produtos</a>
+            
+            
+            <div class="link_categoria">
+                <a href="#" class="">Categórias
+                    
+                </a>
+                <nav class="nav_subCat ">
+                    <a href="#categoria">Horticulas</a>
+                    <a href="#categoria">Vegetais</a>
+                    <a href="#categoria">Frutos</a>
+                    <a href="#categoria">Tubercules</a>
+                </nav>
+            </div>
+            
+            <a href="../sobre/sobre.html">Sobre Nós</a>
+
         </nav>
-        <a href="./../carrinho/carrinho.html" class="cart-icon" >
+        <a href="../carrinho/carrinho.html" class="cart-icon" >
             🛒 <span class="cart-count" id="count">0</span>
         </a>
     </header>
+
+    <aside class="menu-movel">
+        <span class="close-cart" >✖</span>
+        <nav class="nav-movel">
+            
+                <a href="../../index.html" >Home</a>
+                <a href="#" >Produtos</a>
+                <a href="#">Categórias</a>
+                <a href="../sobre/sobre.html">Sobre Nós</a>
+            
+        </nav>
+    </aside>
+    
 
     <main id="shop-area">
         <div class="container">
@@ -41,12 +77,12 @@
             </div>
     </main>
 
-    <script src="./../../script/cart.js" ></script>
-    <script src="./../../script/main.js" type="module"></script>
-    <script src="../../script/prodScript.js" type="module"></script>
+    <script type="module" src="../../script/cart.js"></script>
+    <script type="module" src="../../script/main.js"></script>
+    <script type="module" src="../../script/prodScript.js"></script>
 
     <footer>
-            <div class="container_footer" style="display: flex; justify-content: space-around;">
+            <div class="container_footer">
 
                 <div>
                     

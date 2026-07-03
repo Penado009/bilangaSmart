@@ -4,207 +4,67 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Carrinho</title>
+    <link rel="shortcut icon" href="../../icon/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="./../../css/style_home/principal.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=delete" />
+    <link rel="stylesheet" href="../../css/style_carrinho/carrinho.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
 
-    <style>
-          :root {
-            --primary: #1b5e1f;
-            --secondary: #2e7d32;
-            --accent: #ffa000;
-            --light: #f8f9fa;
-            --white: #ffffff;
-            --shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-        }
-
-        body{
-            overflow-x: hidden;
-            width: 100vw;
-            height: 100vh;
-            background-image: url(./../../imagens/TR.jpg);
-            background-repeat: no-repeat;
-            background-position: center center;
-            background-attachment: fixed;
-            background-size: cover;
-        }
-        section.main_carrinho{            
-            padding: 20px;
-            display: grid;
-            gap: 50px;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            justify-content: center;
-        }
-
-        .form_finalizar{
-            border-radius: 15px;
-            background-color: #ffffffa7;
-            backdrop-filter: blur(10px);
-            padding: 10px;
-            display: flex;
-            flex-flow: column nowrap;
-            justify-content: space-around;
-            gap: 10px;
-        }
-
-        h2{
-            color: rgb(6, 63, 6);
-            text-align: center;
-            text-shadow: 0 0 5px #00000022;
-        }
-
-        .form_finalizar div input{
-            padding: 10px;
-            border-radius: 10px;
-            border: 2px solid var(--primary);       
-            width: 100%;
-            outline: none;
-            
-        }
-
-
-        .form_finalizar div input:focus, #municipio{
-            border: 2px solid #03f35b84;
-        }
-
-        select#imunicipio{
-            outline: none;
-            width: 35%;
-            border: 1px solid #25d36552;
-        }
-
-        fieldset{
-            display: flex;
-             gap: 20px; 
-             width: 100%; 
-             padding: 10px; 
-             border-radius: 10px;
-            border: 1px solid #02391652;
-        }
-
-        legend{
-            font-size: medium;
-            font-weight: bold;
-            transition: .5s;
-        }
-
-        fieldset[active] legend{
-            font-size: large;
-        }
-
-        .cart-items {
-            background-color: #ffffffa7;
-            border-radius: 10px;
-            padding: 15px;
-            min-height: 300px;
-            max-height: 500px;
-            overflow-y: auto;
-        }
-
-        .cart-item {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 5px;
-            background-color: #fff;
-            border-radius: 8px;
-            margin-bottom: 10px;
-            border-left: 4px solid var(--primary);
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-        }
-
-        .cart-item-info {
-            flex: 1;
-        }
-
-        .cart-item-name {
-            
-            font-weight: bold;
-            color: var(--primary);
-            margin-bottom: 5px;
-        }
-
-        .cart-item-price {
-            color: var(--accent);
-            font-weight: bold;
-            font-size: 14px;
-        }
-
-        .cart-item-quantity {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            margin: 0 15px;
-        }
-
-        .cart-item-quantity button {
-            width: 28px;
-            height: 28px;
-            border: none;
-            background-color: var(--primary);
-            color: white;
-            border-radius: 4px;
-            cursor: pointer;
-            font-weight: bold;
-            transition: background-color 0.3s;
-        }
-
-        .cart-item-quantity button:hover {
-            background-color: var(--secondary);
-        }
-
-        .cart-item-quantity span {
-            min-width: 30px;
-            text-align: center;
-            font-weight: bold;
-        }
-
-        .cart-item-remove {
-            background-color: #f44336;
-            color: white;
-            border: none;
-            padding: 6px 12px;
-            border-radius: 4px;
-            cursor: pointer;
-            font-weight: bold;
-            transition: background-color 0.3s;
-        }
-
-        .cart-item-remove:hover {
-            background-color: #d32f2f;
-        }
-
-        .cart-empty {
-            text-align: center;
-            padding: 40px;
-            color: var(--primary);
-            font-size: 18px;
-        }
-
-    </style>
 <body>
 
     <header>
         <div id="logo">
-            <img src="./../../icon/logo.png" alt="logo"
-                style="width: 100px; height: 50px; margin: 0; padding: 0; cursor: pointer;">
+            <a href="../../index.html">
+                <img src="../../icon/logo.png" alt="logo" class="logo-img">
+            </a>
+        </div>
+
+        <div class="menu-hambur" id="hambur">
+            <img src="../../icon/menu_humburguim.png" alt="Menu para dispositivos móveis" >
         </div>
 
         <nav class="navbar">
-            <a href="./../../index.html" >Home</a>
-            <a href="./../produtos/produtos.html">Produtos</a>
-            <a href="#">Categórias</a>
-            <a href="#">Sobre Nós</a>
+            <a href="../../index.html" >Home</a>
+            <a href="../produtos/produtos.html">Produtos</a>
+            
+            
+            <div class="link_categoria">
+                <a href="#" class="">Categórias
+                    
+                </a>
+                <nav class="nav_subCat ">
+                    <a href="#categoria">Horticulas</a>
+                    <a href="#categoria">Vegetais</a>
+                    <a href="#categoria">Frutos</a>
+                    <a href="#categoria">Tubercules</a>
+                </nav>
+            </div>
+            
+            <a href="../sobre/sobre.html">Sobre Nós</a>
         </nav>
-        <a href="sec_page/carrinho/carrinho.html" class="cart-icon" >
+        <a href="#" class="cart-icon" >
             🛒 <span class="cart-count" id="count">0</span>
         </a>
     </header>
+
+    <aside class="menu-movel">
+        <span class="close-cart" >✖</span>
+        <nav class="nav-movel">
+            
+                <a href="../../index.html" >Home</a>
+                <a href="../produtos/produtos.html">Produtos</a>
+                <a href="#">Categórias</a>
+                <a href="../sobre/sobre.html">Sobre Nós</a>
+            
+        </nav>
+    </aside>
 
     <main>
         <section class="main_carrinho">
             
 
-            <form action="" class="form_finalizar">
+            <form action="" id="iform_finalizar"  class="form_finalizar">
                 <h2>Formulário de Compra</h2>
                 
                 <fieldset style="flex-flow: column nowrap;">
@@ -256,20 +116,24 @@
                 </fieldset>
 
                 
-                   <button type="submit" class="btn-checkout" >FINALIZAR</button>
+                   <button onclick="finalizarPedido()" type="submit" class="btn-checkout" >FINALIZAR</button>
                 
                 
             </form>
+
             
-            <div id="cart-sidebar">
+            
+            <div id="cart-sidebar" >
             
                 <h2 style="border-bottom: 2px solid #eee;">O Meu Pedido</h2>
-                <div class="cart-items" id="cart-list" >
-                    <div class="cart-empty">Carrinho vazio</div>
+                <div class="cont_itemsList" style="overflow-y: auto;">
+                    <div class="cart-items" id="cart-list" >
+                        <div class="cart-empty">Carrinho vazio</div>
+                    </div>
                 </div>
                 <div style="border-top: 2px solid #eee; padding-top: 15px;">
                     <h4>Total: <span id="total-price">0</span> Kz</h4>
-                    <button type="button" class="btn-checkout" onclick="finalizeOrder()" id="btn-finalize" style="display: none; width: 100%; margin-top: 10px;">ENVIAR PEDIDO VIA WHATSAPP</button>
+                    <!-- <button type="button" class="btn-checkout" onclick="finalizeOrder()" id="btn-finalize" style="display: none; width: 100%; margin-top: 10px;">ENVIAR PEDIDO VIA WHATSAPP</button> -->
                     <button type="button" onclick="clearCartItems()" style="width: 100%; margin-top: 10px; background-color: #f44336; color: white; border: none; padding: 10px; border-radius: 5px; cursor: pointer;">Limpar Carrinho</button>
                 </div>
             </div>
@@ -277,12 +141,13 @@
 
     </main>
 
-    <script src="./../../script/cart.js"></script>
-    <script src="./../../script/main.js"></script>
-    <script src="./../../script/cart-page.js"></script>
+    <script type="module" src="../../script/cart.js"></script>
+    <script type="module" src="../../script/main.js"></script>
+    <script type="module" src="../../script/prodScript.js"></script>
+    <script type="module" src="../../script/cart-page.js"></script>
 
     <footer>
-            <div class="container_footer" style="display: flex; justify-content: space-around;">
+            <div class="container_footer">
                 <div>
                     
                     <div class="redes_sociais flex_footer">

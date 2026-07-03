@@ -11,6 +11,13 @@
             
         }
 
+        .container_footer {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
         .flex_footer{
             display: flex;
             flex-flow: column nowrap;
@@ -44,6 +51,8 @@
             outline: none;
             padding: 5px;
             width: 200px; 
+            opacity: .8;
+            resize: none;
         }
 
         .radius-coment{

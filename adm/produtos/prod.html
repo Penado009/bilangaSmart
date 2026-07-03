@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Produtos dash</title>
+    <link rel="shortcut icon" href="../../icon/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="../../css/styleAdm/header.css">
     <link rel="stylesheet" href="../../css/styleAdm/main.css">
     <link rel="stylesheet" href="../../css/style_produtos/main.css">
@@ -17,7 +18,7 @@
         <nav class="nav-dash" >
             <a href="../dashboard.html">INÍCIO</a>
             <a href="#">PRODUTOS</a>
-            <a href="../vendas/vendas.html">VENDA</a>
+            <a href="../pedidos/pedidos.html">PEDIDOS</a>
             <a href="#">CLIENTES</a>
         </nav>
     </header>
@@ -45,7 +46,7 @@
             <nav class="nav-dash">
                 <a href="../dashboard.html">INÍCIO</a>
                 <a href="#">PRODUTOS</a>
-                <a href="../vendas/vendas.html">VENDA</a>
+                <a href="../pedidos/pedidos.html">PEDIDOS</a>
                 <a href="#">CLIENTES</a>
             </nav>
         </div>
@@ -57,10 +58,8 @@
 
             <nav class="navProDash" id="inavProDash">
                 <a data-page="stock">Stock</a>
-                <a data-page="frutos">Frutos</a>
-                <a data-page="horticulas">Horticulas</a>
-                <a data-page="tubercule">Tubercule</a>
-                <a data-page="vegetais">Vegetais</a>
+                <a data-page="produtosPublicados">Produtos Publicados</a>
+                <a data-page="produtosporPublicar">Produtos por Publicar</a>
                 <a data-page="cadastrar">Cadastrar</a>
             </nav>
             
@@ -68,7 +67,9 @@
                 
             </div>
             
+
             
+          
 
                 
             </section>
@@ -78,8 +79,11 @@
 
     </main>
 
+         
+
     <script src="../../script/adm.js"></script>
-    <script src="../../script/admRender.js"></script>
+    <script type="module" src="../../script/admRender.js"></script>
 
 </body>
 </html>
+

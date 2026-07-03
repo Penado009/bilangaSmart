@@ -2,11 +2,14 @@
 
 .product-card {
             background: white;
+            width: 250px;
             border-radius: 12px;
             overflow: hidden;
             box-shadow: var(--shadow);
             transition: 0.3s;
             flex-shrink: 0;
+            
+            
         }
 
         .product-card:hover {
@@ -15,7 +18,7 @@
 
         .product-card img {
             width: 100%;
-            max-height: 200px;
+            height: 200px;
             object-fit: cover;
         }
 
@@ -42,6 +45,28 @@
             font-weight: bold;
             transition: 0.2s;
         }
+
+        /* PARA BOTOES ADM PRODUTOS EM STOCK */
+        .btn-publicar,  .btn-editar, .btn-eliminar{
+            background: var(--primary);
+            color: white;
+            border: none;
+            width: 30%;
+            padding: 6px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: 0.2s;
+        }
+
+        .btn-editar{
+            background-color: var(--accent);
+        }
+
+        .btn-eliminar{
+            background-color: #d32f2f;
+        }
+
 
         .btn-add:hover {
             background: var(--secondary);

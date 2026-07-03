@@ -1,49 +1,5 @@
-let cart = [];
-        let total = 0;
 
-         
-        
-
-
-        function addToCart(name, price) {
-            cart.push({ name, price });
-            total += price;
-            updateUI();
-            // alert(name + " adicionado ao carrinho!");
-        }
-
-        function updateUI() {
-            document.getElementById('count').innerText = cart.length;
-            document.getElementById('total-price').innerText = total.toLocaleString();
-
-            const list = document.getElementById('cart-list');
-            list.innerHTML = '';
-            cart.forEach((item, index) => {
-                list.innerHTML += `
-                    <div class="cart-item">
-                        
-                        <span>${item.name} </span>
-                        <span>${item.price} Kz</span>
-                    </div>
-                `;
-            });
-        }
-
-        function checkoutWhatsApp() {
-            if (cart.length === 0) return alert("O carrinho está vazio!");
-
-            let numeroWhatsApp = "244935850464"; // INSIRA O SEU NÚMERO AQUI
-            let mensagem = "Olá BILANGA Smart! Gostaria de fazer o seguinte pedido:%0A%0A";
-
-            cart.forEach(item => {
-                mensagem += `- ${item.name}: ${item.price} Kz%0A`;
-            });
-
-            mensagem += `%0A*Total: ${total} Kz*%0A%0AComo posso proceder com o pagamento?`;
-
-            window.open(`https://wa.me/${numeroWhatsApp}?text=${mensagem}`, '_blank');
-        }
-        function filterProducts() {
+function filterProducts() {
     // 1. Obter o texto da pesquisa e converter para minúsculas
     let input = document.getElementById('searchInput').value.toLowerCase();
 
@@ -56,12 +12,14 @@ let cart = [];
 
         // 4. Se o nome contiver o texto pesquisado, mostra. Se não, esconde.
         if (productName.includes(input)) {
-            cards[i].style.display = "";
+            cards[i].style.display = "block";
         } else {
             cards[i].style.display = "none";
         }
     }
 }
+
+window.filterProducts = filterProducts;
 
 /*Catalogo prev e back*/
 
@@ -94,7 +52,10 @@ document.addEventListener('DOMContentLoaded', () => {
     const menu_movel = document.querySelector('.menu-movel')
     const close_cart = document.querySelector('.close-cart')
 
-    hambur.addEventListener('click', () =>{
+    
+
+    if (menu_hamburg && close_cart) {
+        menu_hamburg.addEventListener('click', () =>{
         menu_movel.classList.toggle('activo-menu')
     })
 
@@ -102,49 +63,14 @@ document.addEventListener('DOMContentLoaded', () => {
         menu_movel.classList.remove('activo-menu')
     })
 
+    }
+
+    
+
     window.addEventListener('resize', () =>{{
         if(window.innerWidth > 768){
             menu_hamburg.classList.remove('activo-menu')
         }
     }})
 
-    
-   // Área onde os produtos serão inseridos
-const productGrid = document.querySelector('.product-grid')
 
-
-// Dados dos produtos
-const dados = [
-    {
-        img: 'TR.jpg',
-        titulo: 'Banana',
-        preco: 2000
-    },
-    {
-        img: 'ws.jpg',
-        titulo: 'Couve',
-        preco: 1000
-    }
-]
-
-// Renderizar produtos
-productGrid.innerHTML = dados.map(elem => `
-    <div class="product-card">
-        <img src="${elem.img}" alt="${elem.titulo}">
-
-        <div class="product-info">
-            <h3>${elem.titulo}</h3>
-
-            <p class="price">
-                ${elem.preco} Kz
-            </p>
-
-            <button 
-                class="btn-add"
-                onclick="addToCart('${elem.titulo}', ${elem.preco})"
-            >
-                🛒 Adicionar
-            </button>
-        </div>
-    </div>
-`).join('')

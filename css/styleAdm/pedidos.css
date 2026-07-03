@@ -1,0 +1,539 @@
+/*==============================
+    PÁGINA VENDAS
+==============================*/
+
+.pedidos{
+    display:flex;
+    flex-direction:column;
+    gap:25px;
+    padding:20px;
+}
+
+/*==============================
+    CABEÇALHO
+==============================*/
+
+.headerPage{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    flex-wrap:wrap;
+    gap:20px;
+}
+
+.headerPage h2{
+    margin:0;
+    color:#222;
+}
+
+.headerPage p{
+    margin-top:5px;
+    color:#666;
+    font-size:14px;
+}
+
+.acoesHeader{
+    display:flex;
+    gap:10px;
+    flex-wrap:wrap;
+}
+
+/*==============================
+    BOTÕES
+==============================*/
+
+.btnPDF,
+.btnSecundario{
+
+    border:none;
+    border-radius:8px;
+    padding:11px 18px;
+    cursor:pointer;
+    font-size:14px;
+    transition:.3s;
+
+}
+
+.btnPDF{
+
+    background:#1a7f37;
+    color:#fff;
+
+}
+
+.btnPrincipal:hover{
+
+    background:#14692d;
+
+}
+
+.btnSecundario{
+
+    background:#ececec;
+
+}
+
+.btnSecundario:hover{
+
+    background:#dcdcdc;
+
+}
+
+/*==============================
+    CARDS
+==============================*/
+
+.cardsResumo{
+
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:20px;
+
+}
+
+.cardResumo{
+
+    background:#fff;
+    padding:20px;
+    border-radius:12px;
+    box-shadow:0 2px 8px rgba(0,0,0,.08);
+    text-align:center;
+
+}
+
+.cardResumo h4{
+
+    margin:0;
+    color:#666;
+    font-size:14px;
+
+}
+
+.cardResumo span{
+
+    display:block;
+    margin-top:10px;
+    font-size:28px;
+    font-weight:bold;
+    color:#1a7f37;
+
+}
+
+/*==============================
+    FILTROS
+==============================*/
+
+.filtros{
+
+    background:#fff;
+    padding:20px;
+    border-radius:12px;
+    box-shadow:0 2px 8px rgba(0,0,0,.08);
+
+    display:grid;
+    grid-template-columns:2fr repeat(4,1fr) auto;
+    gap:15px;
+
+}
+
+.filtros input,
+.filtros select{
+
+    height:45px;
+    border:1px solid #ddd;
+    border-radius:8px;
+    padding:0 12px;
+    outline:none;
+
+}
+
+.filtros input:focus,
+.filtros select:focus{
+
+    border-color:#1a7f37;
+
+}
+
+/*==============================
+    GRÁFICO
+==============================*/
+
+.graficoContainer{
+
+    background:#fff;
+    border-radius:12px;
+    padding:20px;
+    box-shadow:0 2px 8px rgba(0,0,0,.08);
+
+}
+
+.graficoContainer h3{
+
+    margin-bottom:20px;
+
+}
+
+#graficoVendas{
+
+    width:100%;
+    height:380px;
+
+}
+
+/*==============================
+    TABELA
+==============================*/
+
+.tabelaContainer{
+
+    background:#fff;
+    border-radius:12px;
+    box-shadow:0 2px 8px rgba(0,0,0,.08);
+    overflow:auto;
+
+}
+
+table{
+
+    width:100%;
+    border-collapse:collapse;
+    overflow-x: auto;
+}
+
+thead{
+
+    background:#1a7f37;
+    color:#fff;
+
+}
+
+thead th{
+
+    padding:15px;
+    text-align:left;
+
+}
+
+tbody td{
+
+    padding:8px;
+    border-bottom:1px solid #eee;
+
+}
+
+tbody tr:hover{
+
+    background:#f7f7f7;
+
+}
+
+/*==============================
+    STATUS
+==============================*/
+
+.status{
+
+    padding:5px 12px;
+    border-radius:20px;
+    font-size:12px;
+    font-weight:bold;
+    color:#fff;
+
+}
+
+.entregue{
+
+    background:#28a745;
+
+}
+
+.pendente{
+
+    background:#ffc107;
+    border: none;
+    
+
+}
+
+.processando{
+
+    background:#0d6efd;
+    border: none;
+}
+
+.cancelado{
+
+    background:#dc3545;
+
+}
+
+/*==============================
+    BOTÕES DA TABELA
+==============================*/
+
+.acoes{
+
+    display:flex;
+    gap:8px;
+    justify-content:center;
+
+}
+
+.acoes button{
+
+    width:36px;
+    height:36px;
+
+    border:none;
+    border-radius:8px;
+
+    cursor:pointer;
+
+    color:#fff;
+
+    transition:.3s;
+
+}
+
+.btnVer{
+
+    background:#0d6efd;
+
+}
+
+.btnProcessar{
+
+    background:#ffc107;
+
+    color:#333;
+
+}
+
+.btnEntregar{
+
+    background:#198754;
+
+}
+
+.btnCancelar{
+
+    background:#dc3545;
+    border: none;
+
+}
+
+.acoes button:hover{
+
+    transform:scale(1.08);
+
+}
+
+/*==============================
+    PAGINAÇÃO
+==============================*/
+
+.paginacao{
+
+    display:flex;
+    justify-content:center;
+    gap:10px;
+
+}
+
+.paginacao button{
+
+    width:40px;
+    height:40px;
+    border:none;
+    border-radius:8px;
+    cursor:pointer;
+    background:#ececec;
+
+}
+
+.paginacao .ativo{
+
+    background:#1a7f37;
+    color:#fff;
+
+}
+
+/*==============================
+    MODAL
+==============================*/
+
+.modalPedido{
+
+    position:fixed;
+    inset:0;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    background:rgba(0,0,0,.5);
+
+    z-index:999;
+
+}
+
+.oculto{
+
+    display:none;
+
+}
+
+.modalConteudo{
+
+    width:900px;
+    max-width:95%;
+
+    max-height:90vh;
+
+    overflow:auto;
+
+    background:#fff;
+
+    border-radius:12px;
+
+}
+
+.modalHeader{
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    padding:20px;
+
+    border-bottom:1px solid #ddd;
+
+}
+
+.modalHeader button{
+
+    border:none;
+    background:none;
+
+    font-size:24px;
+
+    cursor:pointer;
+
+}
+
+.modalBody{
+
+    padding:20px;
+
+}
+
+.dadosPedido{
+
+    display:grid;
+
+    grid-template-columns:repeat(2,1fr);
+
+    gap:20px;
+
+}
+
+.item{
+
+    display:flex;
+    flex-direction:column;
+
+}
+
+.item strong{
+
+    color:#666;
+
+    margin-bottom:5px;
+
+}
+
+.tabelaProdutos{
+
+    width:100%;
+
+    margin-top:20px;
+
+    border-collapse:collapse;
+
+}
+
+.tabelaProdutos th{
+
+    background:#1a7f37;
+
+    color:#fff;
+
+    padding:12px;
+
+}
+
+.tabelaProdutos td{
+
+    padding:12px;
+
+    border-bottom:1px solid #eee;
+
+}
+
+@media(max-width:700px){
+
+    .dadosPedido{
+
+        grid-template-columns:1fr;
+
+    }
+
+}
+/*==============================
+    RESPONSIVO
+==============================*/
+
+@media(max-width:1000px){
+
+    .filtros{
+
+        grid-template-columns:1fr 1fr;
+
+    }
+
+}
+
+@media(max-width:700px){
+
+    .headerPage{
+
+        flex-direction:column;
+        align-items:flex-start;
+
+    }
+
+    .acoesHeader{
+
+        width:100%;
+
+    }
+
+    .acoesHeader button{
+
+        flex:1;
+
+    }
+
+    .filtros{
+
+        grid-template-columns:1fr;
+
+    }
+
+    .cardsResumo{
+
+        grid-template-columns:1fr;
+
+    }
+
+}

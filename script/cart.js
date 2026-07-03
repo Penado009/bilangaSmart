@@ -1,126 +1,176 @@
+import {
+    getProdutos,
+    criarPedido
+} from './server.js'
+
+
+
 // Sistema de Carrinho com localStorage
 class ShoppingCart {
+
     constructor() {
-        this.storageKey = 'bilanga_cart';
-        this.items = this.loadFromStorage();
+        this.items = this.load();
     }
 
-    // Carregar carrinho do localStorage
-    loadFromStorage() {
-        try {
-            const saved = localStorage.getItem(this.storageKey);
-            return saved ? JSON.parse(saved) : [];
-        } catch (error) {
-            console.error('Erro ao carregar carrinho:', error);
-            return [];
-        }
+    load() {
+        return JSON.parse(localStorage.getItem('cart')) || [];
     }
 
-    // Salvar carrinho no localStorage
-    saveToStorage() {
-        try {
-            localStorage.setItem(this.storageKey, JSON.stringify(this.items));
-            // Disparar evento para atualizar todas as abas abertas
-            window.dispatchEvent(new Event('cartUpdated'));
-        } catch (error) {
-            console.error('Erro ao salvar carrinho:', error);
-        }
+    save() {
+        localStorage.setItem('cart', JSON.stringify(this.items));
     }
 
-    // Adicionar item ao carrinho
-    addItem(name, price) {
-        if (!name || price < 0) {
-            console.error('Dados inválidos para adicionar ao carrinho');
-            return false;
-        }
+    add(idProduto, name, price) {
 
-        const existingItem = this.items.find(item => item.name === name);
+        const item = this.items.find(i => i.idProduto === idProduto);
 
-        if (existingItem) {
-            existingItem.quantity++;
+        if (item) {
+            item.quantidade++;
         } else {
             this.items.push({
-                id: Date.now(),
+                idProduto,
                 name,
                 price,
-                quantity: 1
+                quantidade: 1
             });
         }
 
-        this.saveToStorage();
-        return true;
+        this.save();
     }
 
-    // Remover item do carrinho
-    removeItem(itemId) {
-        this.items = this.items.filter(item => item.id !== itemId);
-        this.saveToStorage();
+    increase(idProduto) {
+        const item = this.items.find(i => i.idProduto === idProduto);
+        if (item) item.quantidade++;
+        this.save();
     }
 
-    // Aumentar quantidade
-    increaseQuantity(itemId) {
-        const item = this.items.find(item => item.id === itemId);
-        if (item) {
-            item.quantity++;
-            this.saveToStorage();
+    decrease(idProduto) {
+        const item = this.items.find(i => i.idProduto === idProduto);
+
+        if (!item) return;
+
+        item.quantidade--;
+
+        if (item.quantidade <= 0) {
+            this.remove(idProduto);
         }
+
+        this.save();
     }
 
-    // Diminuir quantidade
-    decreaseQuantity(itemId) {
-        const item = this.items.find(item => item.id === itemId);
-        if (item) {
-            if (item.quantity > 1) {
-                item.quantity--;
-            } else {
-                this.removeItem(itemId);
-            }
-            this.saveToStorage();
-        }
+    remove(idProduto) {
+        this.items = this.items.filter(i => i.idProduto !== idProduto);
+        this.save();
     }
 
-    // Obter total do carrinho
-    getTotal() {
-        return this.items.reduce((sum, item) => sum + (item.price * item.quantity), 0);
-    }
-
-    // Obter quantidade total de itens
-    getItemCount() {
-        return this.items.reduce((sum, item) => sum + item.quantity, 0);
-    }
-
-    // Limpar carrinho
-    clearCart() {
+    clear() {
         this.items = [];
-        this.saveToStorage();
+        this.save();
     }
 
-    // Obter todos os itens
-    getItems() {
-        return this.items;
+    total() {
+        return this.items.reduce(
+            (sum, i) => sum + (i.price * i.quantidade),
+            0
+        );
+    }
+
+    getItemCount() {
+        return this.items.reduce((sum, i) => sum + i.quantidade, 0);
     }
 }
 
 // Instância global do carrinho
-const cart = new ShoppingCart();
+export const cart = new ShoppingCart();
+window.cart = cart;
 
-// Função para adicionar ao carrinho (compatível com onclick)
-function addToCart(name, price) {
-    if (cart.addItem(name, price)) {
-        // Mostrar feedback visual
-        showNotification(`${name} adicionado ao carrinho!`);
-        updateCartCount();
+// função única global
+function addToCart(idProduto, name, price) {
+    // Se chamado com 2 parâmetros (legacy support): addToCart('Banana', 800)
+    if (price === undefined) {
+        price = name;
+        name = idProduto;
+        idProduto = name.toLowerCase().replace(/\s+/g, '_'); // Gera ID a partir do nome
     }
+    
+    cart.add(idProduto, name, price);
+    renderCart();
+    showNotification(`${name} adicionado ao carrinho`);
 }
 
-// Atualizar contador do carrinho em tempo real
-function updateCartCount() {
-    const countElements = document.querySelectorAll('#count');
-    const count = cart.getItemCount();
-    countElements.forEach(el => {
-        el.innerText = count;
-    });
+window.addToCart = addToCart;
+
+//PARA RENDERZAR EM CART ITEM
+function renderCart() {
+
+
+
+    const list = document.getElementById('cart-list');
+
+    if (cart.items.length === 0) {
+         list.innerHTML = '<div class="cart-empty">Carrinho vazio</div>';
+         return;
+     }
+
+    if(!list) return;
+
+    list.innerHTML = cart.items.map(item => `
+        <div class="cart-item">
+
+            <abbr class="abbr_nome" title="${item.name}"><span class="cart-item-name">${item.name}</span></abbr>
+            
+
+            <div class="cart-item-quantity">
+
+            
+            <button onclick="decrease(${item.idProduto})">-</button>
+            <span>${item.quantidade}</span>
+            
+            <button onclick="increase(${item.idProduto})">+</button>
+            
+            </div>
+            
+            <span class="cart-item-price" >${item.price * item.quantidade} Kz</span>
+            
+            <button class="cart-item-remove"  onclick="removeItem(${item.idProduto})">
+            <span class="material-symbols-outlined">delete</span>
+            </button>
+            
+        </div>
+    `).join('');
+
+    document.getElementById('total-price').innerText =
+        cart.total().toLocaleString();
+
+    updateCartCount();
 }
+
+// Inicializar contador ao carregar página
+document.addEventListener('DOMContentLoaded', () => {
+    renderCart();
+    updateCartCount();
+});
+function increase(id) {
+    cart.increase(id);
+    renderCart();
+}
+
+function decrease(id) {
+    cart.decrease(id);
+    renderCart();
+}
+
+function removeItem(id) {
+    cart.remove(id);
+    renderCart();
+}
+
+window.increase = increase;
+window.decrease = decrease;
+window.removeItem = removeItem;
+
+
+
 
 // Mostrar notificação
 function showNotification(message) {
@@ -148,6 +198,8 @@ function showNotification(message) {
     }, 3000);
 }
 
+window.showNotification = showNotification;
+
 // Adicionar animação CSS
 const style = document.createElement('style');
 style.textContent = `
@@ -174,15 +226,128 @@ style.textContent = `
 `;
 document.head.appendChild(style);
 
-// Inicializar contador ao carregar página
-document.addEventListener('DOMContentLoaded', () => {
-    updateCartCount();
-});
 
-// Sincronizar carrinho quando houver mudanças em outra aba
-window.addEventListener('storage', (event) => {
-    if (event.key === 'bilanga_cart') {
-        cart.items = cart.loadFromStorage();
-        updateCartCount();
+//Atualizar contador do carrinho em tempo real
+function updateCartCount() {
+    const countElements = document.querySelectorAll('#count');
+    const count = cart.getItemCount();
+    countElements.forEach(el => {
+        el.innerText = count;
+    });
+}
+
+//PARA PEDIDOS
+
+async function finalizarPedido() {
+
+     const borderRed = document.querySelector('.borderRed')
+     const nome = document.getElementById('inome').value.trim();
+     const email = document.getElementById('i-email').value.trim();
+     const telefone = document.getElementById('itelef').value.trim();
+     const municipio = document.getElementById('imunicipio').value;
+     const bairro = document.getElementById('ibairro').value.trim();
+
+      //Validação básica
+     if (!nome || nome.length < 3) {
+         alert('Por favor, digite um nome válido');
+         return;
+     }
+
+     if (!telefone || telefone.length < 9) {
+         alert('Por favor, digite um telefone válido');
+         return;
+     }
+
+     if (!municipio) {
+         alert('Por favor, selecione um município');
+         return;
+     }
+
+     if (!bairro || bairro.length < 2) {
+         alert('Por favor, digite um bairro válido');
+         return;
+     }
+
+     if (cart.items.length === 0) {
+         alert('O carrinho está vazio!');
+         return;
+     }
+   
+
+    const pedido = {
+        cliente: nome,
+
+        endereco:
+            municipio +
+            ', ' +
+            bairro,
+
+        telefone: telefone,
+
+        dataEntrega: new Date().toISOString(),
+
+        itensPedido: cart.items.map(item => ({
+            idProduto: item.idProduto,
+            quantidade: item.quantidade
+        }))
+    };
+
+    try {
+
+        const res = await fetch('http://localhost:8080/pedidos', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(pedido)
+        });
+
+        if (!res.ok) throw new Error('Erro ao enviar pedido');
+
+        showNotification('Pedido enviado com sucesso!');
+        cart.clear();
+        renderCart();
+
+    } catch (err) {
+        console.error(err);
+        alert('Erro ao enviar pedido');
     }
-});
+
+
+    // Limpar carrinho após envio
+     setTimeout(() => {
+         cart.clear();
+         renderCart();
+        
+         // Limpar formulário
+         document.getElementById('inome').value = '';
+         document.getElementById('i-email').value = '';
+         document.getElementById('itelef').value = '';
+         document.getElementById('imunicipio').value = '';
+         document.getElementById('ibairro').value = '';
+        
+     }, 500);
+}
+
+
+
+
+ // Limpar carrinho
+  function clearCartItems() {
+      if (confirm('Tem certeza que deseja limpar o carrinho?')) {
+          cart.clear();
+          renderCart();
+          updateCartCount();
+          showNotification('Carrinho limpo');
+      }
+  }
+     
+  window.clearCartItems = clearCartItems
+ 
+
+ //Renderizar carrinho quando a página carrega
+ document.addEventListener('DOMContentLoaded', () => {
+     renderCart();
+ });
+
+window.finalizarPedido = finalizarPedido;
